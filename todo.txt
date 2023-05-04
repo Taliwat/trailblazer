@@ -1,0 +1,19 @@
+------------MVP--------------
+-Models (User, Park, Review)
+-Auth (JWT copy/paste from 26)
+-GQL setup (Typedefs, Resolvers)
+-Mongoose Atlas (Start up a mongoose atlas server)
+
+-Signup Page (simple signup (email+username+password))
+-Login Page (simple login (email+password))
+-Homepage (mapbox + list/summaries of in-state parks)
+-Navbar (Login/Logout + Logo + Sidebar navigation menu?)
+-User Page (Shows user details + parks visited + reviews left)
+-Park Page (Shows details about the park using the nps database)
+-Contact Page (basic details about how to contact us... credit profiles... etc...)
+----------Feature Ideas-------
+- "score" based on how many you have visited
+-  user reviews (ratings + comments)
+-  cross-state searches (extended seearch areas other than by state)
+-  state parks / other parks added
+-  more information about the parks (like routes/wikipedia/anything we can get our hands on reliably)

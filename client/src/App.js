@@ -1,6 +1,23 @@
+import MapBox from "./components//MapBox/MapBox.js";
+
 function App() {
   return (
-    <h1>APP</h1>
+    //DOMROUTER
+    ////USERCONTEXT
+    ////NAVBAR
+    //////ROUTES
+    ////////ROUTE HOME
+    <MapBox />
+    //////////HOMEPAGE (probably mapbox is imported there)
+    ////////ROUTE LOGIN
+    //////////LOGIN
+    ////////ROUTE SIGNUP
+    //////////SIGNUP
+    ////////ROUTE SPECIFIC PARK
+    //////////SPECIFICPARK
+    //////ROUTES
+    ////USERCONTEXT
+    //DOMROUTER
   );
 }
 
