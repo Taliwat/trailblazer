@@ -1,4 +1,5 @@
-import MapBox from "./components//MapBox/MapBox.js";
+import { HomePage } from "./pages/HomePage.js";
+import React from "react";
 
 function App() {
   return (
@@ -7,8 +8,8 @@ function App() {
     ////NAVBAR
     //////ROUTES
     ////////ROUTE HOME
-    <MapBox />
     //////////HOMEPAGE (probably mapbox is imported there)
+    <HomePage />
     ////////ROUTE LOGIN
     //////////LOGIN
     ////////ROUTE SIGNUP

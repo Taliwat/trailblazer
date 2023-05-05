@@ -1,13 +1,13 @@
 ------------MVP--------------
--Models (User, Park, Review)
+-Models (User, Park, Review) - Jacob
 -Auth (JWT copy/paste from 26)
--GQL setup (Typedefs, Resolvers)
+-GQL setup (Typedefs, Resolvers) - Damian
 -Mongoose Atlas (Start up a mongoose atlas server)
 
--Signup Page (simple signup (email+username+password))
--Login Page (simple login (email+password))
--Homepage (mapbox + list/summaries of in-state parks)
--Navbar (Login/Logout + Logo + Sidebar navigation menu?)
+-Signup Page (simple signup (email+username+password)) 
+-Login Page (simple login (email+password)) 
+-Homepage (mapbox + list/summaries of in-state parks) 
+-Navbar (Login/Logout + Logo + Sidebar navigation menu?) - Ryan
 -User Page (Shows user details + parks visited + reviews left)
 -Park Page (Shows details about the park using the nps database)
 -Contact Page (basic details about how to contact us... credit profiles... etc...)
@@ -17,3 +17,7 @@
 -  cross-state searches (extended seearch areas other than by state)
 -  state parks / other parks added
 -  more information about the parks (like routes/wikipedia/anything we can get our hands on reliably)
+-  user photo uploads
+-  starting lat/lon based on state https://en.wikipedia.org/wiki/List_of_geographic_centers_of_the_United_States
+-  live weather forcast of park
+-  database the parks
