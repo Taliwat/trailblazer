@@ -4,12 +4,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-      reviews: async () => {
+      reviews: async ( { reviewId }) => {
         return await Review.find({ reviewId }).sort({ createdAt: -1});
       },
 
       review: async (parent, { reviewId }) => {
-        return await Review.findOne({ _id: reviewID });
+        return await Review.findOne({ _id: reviewId });
       },
 
       users: async () => {
@@ -29,8 +29,62 @@ const resolvers = {
     },
 
     mutation: {
-        
-    }
+        addUser: async (parent, { firstName, lastName, username, email, password }) => {
+            const user = await User.create({ firstName, lastName, username, email, password });
+            const token = signToken(user);
 
+            return { token, profile };
+        },
+        addReview: async (parent, { userId, review }, context) => {
+            if (context.user) {
+                return Profile.findOneAndUpdate(
+                  { _id: userId },
+                  {
+                    $addToSet: { reviews: review },
+                  },
+                  {
+                    new: true,
+                    runValidators: true,
+                  }
+                );
+            }
+            throw new AuthenticationError('You have to be logged in!');
+        },
+        //remove your account only if logged in 
+        removeUser: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOneAndDelete({ _id: context.user._id });
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        //logged in user can only remove their reviews
+        removeReview: async (parent, { review }, context) => {
+            if (context.user) {
+                return User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { reviews: review } },
+                    { new: true }
+                );
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
 
-}
+            if (!user) {
+                throw new AuthenticationError('No user with this email found!')
+            }
+
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect password!!');
+            }
+
+            const token = signToken(profile);
+            return { token, user };
+        }
+    },
+};
+
+module.exports = resolvers;
