@@ -1,16 +1,26 @@
 const db = require('./connection');
-const parkData = require('../models/seed/parkData');
+const states = require('states-us')
+const abbrev = states.default.map((x) => x.abbreviation);
 const { Park, User } = require('../models');
 
-db.once('open', async () => {
-  await User.deleteMany();
-  await Park.deleteMany();
+async function siteData(CODE) {
+  const res = await fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${CODE[0]}&api_key=a87d5fKBWTnIgwEPzboHNuChJvzEYt0hWbIahnCj`)
+  const data = await res.json();
+  console.log(data);
+  const allData = []
+  allData.push(data.data.map((x) => x));
+  console.log(allData);
+  process.exit();
+};
 
+siteData(abbrev);
 
-  await Park.insertMany(parkData);
-  console.table(parkData);
-  console.log("Parks seeded");
-  process.exit(0);
-})
+// db.once('open', async () => {
+//   await User.deleteMany();
+//   await Park.deleteMany();
+
+//   console.log("Parks seeded");
+//   process.exit(0);
+// })
 
 
