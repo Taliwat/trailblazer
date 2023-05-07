@@ -3,23 +3,28 @@ const { Schema } = mongoose;
 
 const parkSchema = new Schema(
   {
-    states: {
-      type: String,
+    NPS_id: {
+      type: String
     },
-    parkCode: {
-      type: String,
-      unique: true
-    },
-    designation: {
+    url: {
       type: String
     },
     fullName: {
       type: String
     },
-    URL: {
+    parkCode: {
       type: String
     },
-    name: {
+    latitude: {
+      type: Number
+    },
+    longitude:{
+      type: Number
+    },
+    states: {
+      type: [String],
+    },
+    designation: {
       type: String
     }
   }

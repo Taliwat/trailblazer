@@ -1,9 +1,9 @@
-const db = require('./connection');
 const states = require('states-us')
 const abbrev = states.default.map((x) => x.abbreviation);
-const { Park, User } = require('../models');
 let count = 0;
 const allData = []
+const fs = require('fs');
+
 
 async function siteData(CODE) {
   for ( let i = 0; i < CODE.length; i++ ){
@@ -15,23 +15,33 @@ async function siteData(CODE) {
     count = parseInt(data.total) + count
     data.data.map((x) => {
       console.log(x.fullName);
-      allData.push(x);
+      const states = x.states.split(',');
+      allData.push(
+        {
+          NPS_id: x.id,
+          url: x.url,
+          fullName: x.fullName,
+          parkCode: x.parkCode,
+          latitude: x.latitude,
+          longitude: x.longitude,
+          states: states,
+          designation: x.designation
+        }
+      );
     });
     console.log(`*Total sites accumulated: ${count}.*`);
-
   }
-  console.log(allData.length);
-  process.exit();
-};
+  console.table(allData);
+  console.log(`^^\\\/\\\/<><>BA`);
+  const sites = JSON.stringify(allData);
+  fs.writeFile('parkData.json', sites, (err) => {
+    if (err) {
+      console.error('Error writing to file:', err);
+    } else {
+      console.log('Data written to file successfully.');
+    }
+  });
+  
+}
 
 siteData(abbrev);
-
-// db.once('open', async () => {
-//   await User.deleteMany();
-//   await Park.deleteMany();
-
-//   console.log("Parks seeded");
-//   process.exit(0);
-// })
-
-
