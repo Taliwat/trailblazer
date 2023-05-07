@@ -3,15 +3,12 @@ const { Schema } = mongoose;
 
 const parkSchema = new Schema(
   {
-    parkId: {
-      type: new mongoose.Types.ObjectId,
-      default: () => new mongoose.Types.ObjectId
-    },
     states: {
       type: String,
     },
     parkCode: {
-      type: String
+      type: String,
+      unique: true
     },
     designation: {
       type: String

@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const reviewSchema = new Schema(
   {
     reviewId: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       default: () => new mongoose.Types.ObjectId()
     },
     parkCode: {
@@ -51,6 +51,4 @@ reviewSchema.virtual('Updated').get(function () {
   return this.updatedAt.toLocaleString()
 })
 
-const Review = model('Review', reviewSchema)
-
-module.exports = { Review, reviewSchema } 
+module.exports = { reviewSchema } 
