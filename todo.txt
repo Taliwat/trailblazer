@@ -49,7 +49,7 @@
       "electricalhookups": 0,
       "rvonly": 0,
       "walkboatto": 0
-    -reservationsURL
+    npm-reservationsURL
   
 -Contact Page (basic details about how to contact us... credit profiles... etc...)
 ----------Feature Ideas-------
