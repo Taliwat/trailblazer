@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-import { isEmail } from 'validator';
+const validator = require('validator');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-import { reviewSchema } from './Review';
+const reviewSchema = require('./Review');
 
 const userSchema = new Schema(
   {
     userId: {
-      type: new mongoose.Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       default: () => new mongoose.Types.ObjectId()
     },
     username: {
@@ -32,7 +32,7 @@ const userSchema = new Schema(
       trim: true,
       lowercase: true,
       unique: true,
-      validate: [isEmail, 'invalid email']
+      validate: [validator.isEmail, 'invalid email']
     },
     password: {
       type: String,

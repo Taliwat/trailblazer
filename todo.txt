@@ -10,6 +10,47 @@
 -Navbar (Login/Logout + Logo + Sidebar navigation menu?) - Ryan
 -User Page (Shows user details + parks visited + reviews left)
 -Park Page (Shows details about the park using the nps database)
+
+*These are the information components that would be great for each individual park* - JJ
+  -MapData - Park Boundaries as a layer in mapbox (/mapdata/parkboundaries/{sitecode})
+  -Park Alerts (/alerts)
+  -5day weather outlook - openweather
+  -Activities
+  -amentities/parksplaces
+  -amenities/parkvisitorcenters
+  -places (mapbox?)
+  -Events --> User can save to their calendar
+  -thingstodo
+  -tours
+  -Articles & newsreleases
+  -parkinglots
+  -passportstamplocations (mapbox?)
+  -Campground information (/campgrounds)
+    -multimedia / galleries (carousel)
+    -weatheroverview
+    -5 day weather (openWeather)
+    -address
+    -contacts
+    -email
+    -url
+    -description
+    -regulationsurl
+    -directionsoverview
+    -directionsurl
+    -fees
+    -accessibility
+    -amenities
+    -campsites
+      "other": 0,
+      "group": 0,
+      "horse": 0,
+      "totalsites": 28,
+      "tentonly": 28,
+      "electricalhookups": 0,
+      "rvonly": 0,
+      "walkboatto": 0
+    npm-reservationsURL
+  
 -Contact Page (basic details about how to contact us... credit profiles... etc...)
 ----------Feature Ideas-------
 - "score" based on how many you have visited
