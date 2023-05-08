@@ -14,13 +14,13 @@ function App() {
     //////ROUTES
     ////////ROUTE HOME
     //////////HOMEPAGE (probably mapbox is imported there) */}
-        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<HomePage />} />
         {/* {/* ////////ROUTE LOGIN
     //////////LOGIN
     ////////ROUTE SIGNUP
     //////////SIGNUP */}
         {/* ////////ROUTE SPECIFIC PARK */}
-        {/* <Route path="/park/:parkCode" element={<ParkPage />} /> */}
+        <Route path="/park/:parkCode" element={<ParkPage />} />
         {/* //////////SPECIFICPARK
     //////ROUTES
     ////USERCONTEXT */}
