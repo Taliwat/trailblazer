@@ -51,4 +51,6 @@ reviewSchema.virtual('Updated').get(function () {
   return this.updatedAt.toLocaleString()
 })
 
-module.exports = { reviewSchema } 
+const Review = mongoose.model('Review', reviewSchema);
+
+module.exports = Review;
