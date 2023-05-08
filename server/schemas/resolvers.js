@@ -60,17 +60,21 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         //logged in user can only remove their reviews
-        removeReview: async (parent, { review }, context) => {
-            if (context.user) {
-                return await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { reviews: review } },
-                    { new: true }
-                );
-              //delete the whole review itself
-            }
-            if (context.user) {
-              return await Review.findOneAndDelete({ _id: context.user._id })
+        removeReview: async (parent, { reviewId }, context) => {
+          //delete the whole review itself
+          if (context.user) {
+            const review = Review.findOneAndDelete({ 
+              _id: reviewId,
+              author: context.user.username,
+            });
+        
+              await User.findOneAndUpdate(
+                  { _id: context.user._id },
+                  { $pull: { reviews: review._id } },
+                  { new: true }
+              );
+
+              return review;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -89,7 +93,8 @@ const resolvers = {
 
             const token = signToken(user);
             return { token, user };
-        }
+        },
+        // signup, edit user, edit review
     },
 };
 
