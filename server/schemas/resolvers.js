@@ -8,8 +8,8 @@ const resolvers = {
         return await Review.find({ reviewId }).sort({ createdAt: -1});
       },
 
-      review: async (parent, { reviewId }) => {
-        return await Review.findOne({ _id: reviewId });
+      review: async (parent, { parkCode }) => {
+        return await Review.findOne({ _id: parkCode });
       },
 
       users: async () => {
@@ -29,18 +29,20 @@ const resolvers = {
     },
 
     mutation: {
-        addUser: async (parent, { firstName, lastName, username, email, password }) => {
-            const user = await User.create({ firstName, lastName, username, email, password });
+        addUser: async (parent, { firstName, lastName, username, email, password, state }) => {
+            const user = await User.create({ firstName, lastName, username, email, password, state });
             const token = signToken(user);
 
             return { token, profile };
         },
-        addReview: async (parent, { userId, review }, context) => {
+        addReview: async (parent, { userId, review, score, body, parkCode }, context) => {
             if (context.user) {
                 return Profile.findOneAndUpdate(
                   { _id: userId },
                   {
-                    $addToSet: { reviews: review },
+                    $addToSet: 
+                    { reviews: review, score, body, parkCode },
+
                   },
                   {
                     new: true,
@@ -60,11 +62,15 @@ const resolvers = {
         //logged in user can only remove their reviews
         removeReview: async (parent, { review }, context) => {
             if (context.user) {
-                return User.findOneAndUpdate(
+                return await User.findOneAndUpdate(
                     { _id: context.user._id },
                     { $pull: { reviews: review } },
                     { new: true }
                 );
+              //delete the whole review itself
+            }
+            if (context.user) {
+              return await Review.findOneAndDelete({ _id: context.user._id })
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -81,7 +87,7 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect password!!');
             }
 
-            const token = signToken(profile);
+            const token = signToken(user);
             return { token, user };
         }
     },
