@@ -46,7 +46,7 @@ const userSchema = new Schema(
     parksVisited: {
       type: [String]
     },
-    whishList: {
+    wishList: {
       type: [String]
     },
     reviews: [reviewSchema]
