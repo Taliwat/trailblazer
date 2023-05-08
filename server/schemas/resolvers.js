@@ -4,12 +4,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-      reviews: async ( { reviewId }) => {
-        return await Review.find({ reviewId }).sort({ createdAt: -1});
+      reviews: async ({ parkCode }) => {
+        return await Review.find({ _id: parkCode }).sort({ createdAt: -1});
       },
 
-      review: async (parent, { parkCode }) => {
-        return await Review.findOne({ _id: parkCode });
+      review: async (parent, { reviewId }) => {
+        return await Review.findOne({ _id: reviewId });
       },
 
       users: async () => {
@@ -28,27 +28,27 @@ const resolvers = {
       },
     },
 
-    mutation: {
+    Mutation: {
         addUser: async (parent, { firstName, lastName, username, email, password, state }) => {
             const user = await User.create({ firstName, lastName, username, email, password, state });
             const token = signToken(user);
 
             return { token, profile };
         },
-        addReview: async (parent, { userId, review, score, body, parkCode }, context) => {
+        addReview: async (parent, { userId, score, body, parkCode,  }, context) => {
             if (context.user) {
-                return Profile.findOneAndUpdate(
-                  { _id: userId },
-                  {
-                    $addToSet: 
-                    { reviews: review, score, body, parkCode },
+              const review = Review.create({
+                body,
+                score,
+                parkCode,
+                author: context.user.username
+              });
 
-                  },
-                  {
-                    new: true,
-                    runValidators: true,
-                  }
-                );
+              await User.findOneAndUpdate(
+                { _id: userId },
+                { $addToSet: {reviews: reviewId }}
+              );
+              return review;
             }
             throw new AuthenticationError('You have to be logged in!');
         },
