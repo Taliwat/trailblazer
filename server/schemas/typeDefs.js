@@ -59,6 +59,6 @@ const typeDefs = gql `
     # edit review and user TBD
     login(email: String!, password: String!): Auth
   }
+`;
 
-
-`
+module.exports = typeDefs;
