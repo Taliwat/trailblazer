@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-
+//creates a new footer that has links to go to the About Us and Contact Us pages
 export default function Footer () {
     return (
         <footer className="w-full h-12 bg-stone-200 flex justify-between shadow-lg border-solid border-orange-400 border-2 rounded-lg">
