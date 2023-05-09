@@ -7,49 +7,63 @@ export default function ContactUs () {
 <div className="aboutus section">
 
     <h2 className="text-align-center ">Meet the Team!</h2>
-    <div className="row">
-        <div className="col-md-4">
-            <div className="card">
-                <img className="h-auto max-w-full" src="John's picture.png" alt="John's picture"/>
-                <div className="container">
-                <h2>John Scicluna</h2>
-                <p>Insert text here for John (short).</p>
-                <p>John.email@gmail.com</p>
-                <p><button className="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-        <div className="col-md-4">
-            <div className="card">
-                <img className="h-auto max-w-full" src="Jacob's picture.png" alt="Jacob's picture"/>
-                <div className="container">
-                <h2>Jacob Jeffries</h2>
-                <p>Insert text here for Jacob (short).</p>
-                <p>jeffries.info@gmail.com</p>
-                <p><button className="button">Contact</button></p>
-                </div>
-            </div>
-        </div>
-        <div className="col-md-4">
-            <div className="card">
-                <img className="h-auto max-w-full" src="Jake's picture.png" alt="Jake's picture"/>
-                <div className="container">
-                <h2>Damian Galus</h2>
-                <p>Insert text here for Damian (short).</p>
-                <p>damian.galus@gmail.com</p>
-                <p><button className="button">Contact</button></p> 
-            </div>
-        </div>
-        <div className="col-md-4">
-            <div className="card">
-                <img className="h-auto max-w-full" src="Jake's picture.png" alt="Jake's picture"/>
-                <div className="container">
-                <h2>Ryan Mennemeier</h2>
-                <p>Insert text here for Ryan (short).</p>
-                <p>kalpha1865@gmail.com</p>
-                <p><button className="button">Contact</button></p> 
-            </div>
-        </div>
+    <div className="row-span-4">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full" src="./John's picture.jpg" alt="John Scicluna self"/>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">John Scicluna</div>
+    <p class="text-gray-700 text-base">
+      Insert short script for John here.
+    </p>
+  </div>
+  <div class="px-6 pt-4 pb-2">
+    <a href="your_link" className=" inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">John's Github</a>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+  </div>
+</div>
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full" src="./Jacob's picture.jpg" alt="Jacob Jeffries self"/>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Jacob Jeffries</div>
+    <p class="text-gray-700 text-base">
+    Insert short script for Jacob here.
+    </p>
+  </div>
+  <div class="px-6 pt-4 pb-2">
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+  </div>
+</div>
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full" src="/img/Damian's picture.jpg" alt="Damian Galus self"/>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Damian Galus</div>
+    <p class="text-gray-700 text-base">
+    Insert short script for Damian here.
+    </p>
+  </div>
+  <div class="px-6 pt-4 pb-2">
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+  </div>
+</div>
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img class="w-full" src="/img/Ryan's picture.jpg" alt="Ryan Mennemeier self"/>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Ryan Mennemeier</div>
+    <p class="text-gray-700 text-base">
+    Insert short script for Ryan here.
+    </p>
+  </div>
+  <div class="px-6 pt-4 pb-2">
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+  </div>
+</div>
     </div>
 </div>
 )
