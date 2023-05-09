@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import ParkPage from "./pages/ParkPage.js";
 import NavBar from "./components/Navigation.js";
+import Footer from "./components/Footer.js";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
     //////ROUTES
     ////USERCONTEXT */}
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
