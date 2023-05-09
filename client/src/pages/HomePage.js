@@ -28,8 +28,8 @@ export function HomePage({ state }) {
             <div className="flex flex-col gap-3">
                 {npsData.data && npsData.data.map(park => {
                     return (
-                        <div className="flex justify-between h-96 shadow-lg md:text-base text-xs " key={park.parkCode}>
-                            <div className="flex flex-col p-2 w-2/5 gap-2 overflow-y-auto break-words">
+                        <div className="flex md:flex-row flex-col-reverse justify-between md:h-96 shadow-lg md:text-base text-xs " key={park.parkCode}>
+                            <div className="flex flex-col p-2 md:w-2/5 gap-2 overflow-y-auto break-words">
                                 <Link to={`/park/${park.parkCode}`}><p><b>{park.fullName}</b></p> </Link>
                                 <p>{park.description}</p>
                                 <p>Entrance Fees: {park?.entranceFees[0]?.cost} {park?.entranceFees[0]?.description || "0.00 Free"}</p>
@@ -37,7 +37,7 @@ export function HomePage({ state }) {
                                 <p>Leave a review</p>
                                 {/* ratings */}
                             </div>
-                            <div className="flex w-3/5 p-2">
+                            <div className="flex md:w-3/5 md:h-auto h-60 p-2">
                                 <img src={park.images[0]?.url} className="h-full w-full object-cover" alt={'park'} />
                             </div>
                         </div>
