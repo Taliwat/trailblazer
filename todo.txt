@@ -12,10 +12,11 @@
 -Park Page (Shows details about the park using the nps database)
 
 *These are the information components that would be great for each individual park* - JJ
-  -MapData - Park Boundaries as a layer in mapbox (/mapdata/parkboundaries/{sitecode})
   DONE - Park Alerts (/alerts)
-  -5day weather outlook - openweather
-  -Activities
+  DONE - Activities
+  
+  -MapData - Park Boundaries as a layer in mapbox (/mapdata/parkboundaries/{sitecode})
+  -5day weather outlook - openweather?
   -amentities/parksplaces
   -amenities/parkvisitorcenters
   -places (mapbox?)
