@@ -4,6 +4,8 @@ import React from "react";
 import ParkPage from "./pages/ParkPage.js";
 import NavBar from "./components/Navigation.js";
 import Footer from "./components/Footer.js";
+import aboutUs from "./pages/AboutUs.js";
+import ContactUs from "./pages/ContactUs.js";
 
 function App() {
   return (
