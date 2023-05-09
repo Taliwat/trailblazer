@@ -35,7 +35,7 @@ const resolvers = {
 
             return { token, profile };
         },
-        addReview: async (parent, { userId, score, body, parkCode,  }, context) => {
+        addReview: async (parent, { userId, score, body, parkCode  }, context) => {
             if (context.user) {
               const review = Review.create({
                 body,
@@ -46,7 +46,7 @@ const resolvers = {
 
               await User.findOneAndUpdate(
                 { _id: userId },
-                { $addToSet: {reviews: reviewId }}
+                { $addToSet: {reviews: review }}
               );
               return review;
             }
