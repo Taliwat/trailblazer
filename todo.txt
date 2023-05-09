@@ -13,7 +13,7 @@
 
 *These are the information components that would be great for each individual park* - JJ
   -MapData - Park Boundaries as a layer in mapbox (/mapdata/parkboundaries/{sitecode})
-  -Park Alerts (/alerts)
+  DONE - Park Alerts (/alerts)
   -5day weather outlook - openweather
   -Activities
   -amentities/parksplaces
