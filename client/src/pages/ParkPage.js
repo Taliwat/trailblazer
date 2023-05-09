@@ -31,15 +31,25 @@ export default function ParkPage() {
     return (
         <>
             {parkData &&
-                <main className="p-2 w-full h-full">
+                <main className="w-full h-full">
                     <div className="flex w-full" style={{ height: `65vh` }}>
                         <img src={park.images[1].url} className="h-full w-full object-cover object-bottom" alt={park.fullName} />
                     </div>
-                    <div className="flex w-full gap-10">
-                        <h1 className="font-extrabold text-4xl">{park.fullName}</h1>
-                        {/* placeholder review aggregate */}
-                        <h4 className="font-extrabold text-4xl text-gray-700">5/5</h4>
+                    <div className="m-2">
+                        <div className="flex w-full gap-10">
+                            <h1 className="font-extrabold text-4xl">{park.fullName}</h1>
+                            {/* placeholder review aggregate */}
+                            <h4 className="font-extrabold text-4xl text-gray-700">5/5</h4>
+                        </div>
+                        <div className="w-full">
+                            <p className="text-2xl">{park.description} <a className="text-blue-400" target="_blank" rel='noreferrer' href={park.url}>{park.url}</a></p>
+                        </div>
+
+                        <Alerts parkCode={parkCode} />
+                        {/* Loop over reviews and spew them onto the page with review components passing in the current review as a prop */}
+                        <Reviews />
                     </div>
+
                     <div className="w-full">
                         <p className="text-2xl">{park.description} <a className="text-blue-400" target="_blank" rel='noreferrer' href={park.url}>{park.url}</a></p>
                     </div>
