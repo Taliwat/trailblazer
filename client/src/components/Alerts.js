@@ -23,7 +23,7 @@ export default function Alert ({ parkCode }) {
         <div className="flex w-full">
           <p className="font-extrabold text-red-600 text-2xl">Park Alerts:</p>
         </div>
-        <ul className="list-disc">
+        <ul className="list-disc shadow-lg">
         {alertData.map((alert) => (
             <li key={alert.id}><h1 className="text-xl">{alert.description}</h1></li>))}
         </ul>
