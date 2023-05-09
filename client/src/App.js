@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import ParkPage from "./pages/ParkPage.js";
 import NavBar from "./components/Navigation.js";
+import Splash from "./components/Splash.js";
 
 
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar state={state} newState={newState} />
+      <Splash />
       <Routes>
         {/* {/* ////USERCONTEXT */}
         {/* //////ROUTES
