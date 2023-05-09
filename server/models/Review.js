@@ -4,10 +4,6 @@ const { Schema } = mongoose;
 
 const reviewSchema = new Schema(
   {
-    reviewId: {
-      type: mongoose.Types.ObjectId,
-      default: () => new mongoose.Types.ObjectId()
-    },
     parkCode: {
       type: String,
       required: true
@@ -38,7 +34,6 @@ const reviewSchema = new Schema(
     toJSON: {
       virtuals: true
     },
-    id: false,
     versionKey: false
   }
 )

@@ -5,14 +5,7 @@ export const QUERY_USER = gql`
     user {
       firstName
       lastName
-      reviews {
-        _id
-        author
-        body
-        score
-        createdAt
-        updatedAt
-      }
+      username
       wishList {
         parks{
           _id
@@ -45,8 +38,8 @@ export const QUERY_REVIEWS = gql`
 `;
 
 export const QUERY_SINGLE_REVIEW = gql`
-  query getSingleReview($reviewId: ID!) {
-    review(reviewId: $reviewId) {
+  query getSingleReview($_id: ID!) {
+    review(_id: $_id) {
       _id
       parkCode
       author
@@ -66,15 +59,6 @@ export const QUERY_ME = gql`
         lastName
         username
         email
-        reviews{
-          _id
-          parkCode
-          body
-          author
-          score
-          createdAt
-          updatedAt
-      }
     }
   }
 `;

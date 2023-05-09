@@ -12,7 +12,7 @@ const typeDefs = gql `
   }
 
   type User {
-    _id: _id
+    _id: ID
     username: String
     firstName: String
     lastName: String
