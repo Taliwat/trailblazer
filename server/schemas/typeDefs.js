@@ -20,8 +20,8 @@ const typeDefs = gql `
     password: String
     state: String
     parksVisited: String
-    wishList: [wishList]
-    reviews: [Review]!
+    wishList: [String]
+    reviews: [String]
   }
 
   type Park {
@@ -45,8 +45,8 @@ const typeDefs = gql `
   type Query {
     Users: [User]
     user(username: String!): User
-    reviews(username: String): [Review]
-    review(reviewId: ID!): Thought
+    reviews(parkCode: String!): [Review]
+    review(reviewId: ID!): Review
     me: User
   }
 

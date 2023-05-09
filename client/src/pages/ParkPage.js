@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import Review from "../components/Review";
+import Alerts from "../components/Alerts";
 
 export default function ParkPage() {
     const { parkCode } = useParams() // eventually grab parkCode from params
@@ -44,6 +45,7 @@ export default function ParkPage() {
                     <div className="w-full">
                         <p className="text-2xl">{park.description} <a className="text-blue-400" target="_blank" rel='noreferrer' href={park.url}>{park.url}</a></p>
                     </div>
+                    <Alerts parkCode={parkCode}/>
                     {/* Loop over reviews and spew them onto the page with review components passing in the current review as a prop */}
                     {reviews.map(review => {
                         return (
