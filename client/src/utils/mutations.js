@@ -13,12 +13,12 @@ export const LOGIN = gql`
 
 export const ADD_REVIEW = gql`
   mutation addReview(
-    $userId: ID!,
+    $_id: ID!,
     $body: String!,
     $score: Int!,
     $parkCode: String!
     ) {
-        addReview(userId: $userId, parkCode: $parkCode, body: $body, score: $score,) {
+        addReview(_id: $_id, parkCode: $parkCode, body: $body, score: $score,) {
           userId
           parkCode
           body

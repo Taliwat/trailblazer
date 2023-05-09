@@ -8,21 +8,21 @@ const resolvers = {
         return await Review.find({ _id: parkCode }).sort({ createdAt: -1});
       },
 
-      review: async (parent, { reviewId }) => {
-        return await Review.findOne({ _id: reviewId });
+      review: async (parent, { _id }) => {
+        return await Review.findOne({ _id: _id });
       },
 
       users: async () => {
         return User.find();
       },
       
-      user: async (parent, { userId } ) => {
-        return await User.findOne({ _id: userId});
+      user: async (parent, { _id } ) => {
+        return await User.findOne({ _id: _id});
       },
       //get logged in user without specifically looking for them
       me: async (parent, args, context) => {
         if (context.user) {
-            return User.findOne({ _id: context.user.userId });
+            return User.findOne({ _id: context.user._id });
         }
         throw new AuthenticationError('You have to be logged in!');
       },
@@ -35,7 +35,7 @@ const resolvers = {
 
             return { token, profile };
         },
-        addReview: async (parent, { userId, score, body, parkCode  }, context) => {
+        addReview: async (parent, { _id, score, body, parkCode  }, context) => {
             if (context.user) {
               const review = Review.create({
                 body,
@@ -45,7 +45,7 @@ const resolvers = {
               });
 
               await User.findOneAndUpdate(
-                { _id: userId },
+                { _id: _id },
                 { $addToSet: {reviews: review }}
               );
               return review;
@@ -60,11 +60,11 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         //logged in user can only remove their reviews
-        removeReview: async (parent, { reviewId }, context) => {
+        removeReview: async (parent, { _id }, context) => {
           //delete the whole review itself
           if (context.user) {
             const review = Review.findOneAndDelete({ 
-              _id: reviewId,
+              _id: _id,
               author: context.user.username,
             });
         
