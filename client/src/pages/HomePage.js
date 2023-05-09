@@ -3,15 +3,15 @@ import { useEffect, useState } from "react"
 import { coords } from '../assets/coords.js'
 import { Link } from "react-router-dom"
 
-
-export function HomePage() {
-    const [state, setState] = useState('MI') // Probably up-shift this to root app for use in NavBar and Homepage
+// state will likely be upshifted and passed down as a prop and setState/state passed to Navbar
+export function HomePage({ state }) {
+    // Probably up-shift this to root app for use in NavBar and Homepage
     const [npsData, setNpsData] = useState([])
     const ROOTNPSURI = 'https://developer.nps.gov/api/v1/parks?stateCode='
     const NPSURI = `${ROOTNPSURI}${state}&limit=20&api_key=${process.env.REACT_APP_NPS_API}`
 
-    const LOCATIONLON = coords[state].lon
-    const LOCATIONLAT = coords[state].lat
+    let LOCATIONLON = coords[state].lon
+    let LOCATIONLAT = coords[state].lat
 
     useEffect(() => {
         async function fetchMapData() {
@@ -28,7 +28,7 @@ export function HomePage() {
             <div className="flex flex-col gap-3">
                 {npsData.data && npsData.data.map(park => {
                     return (
-                        <div className="flex justify-between h-96 shadow-lg md:text-base text-xs" key={park.parkCode}>
+                        <div className="flex justify-between h-96 shadow-lg md:text-base text-xs " key={park.parkCode}>
                             <div className="flex flex-col p-2 w-2/5 gap-2 overflow-y-auto break-words">
                                 <Link to={`/park/${park.parkCode}`}><p><b>{park.fullName}</b></p> </Link>
                                 <p>{park.description}</p>
