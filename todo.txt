@@ -14,18 +14,30 @@
 *These are the information components that would be great for each individual park* - JJ
   DONE - Park Alerts (/alerts)
   DONE - Activities
+  DONE - Basic Campground Info Alert
+  -Events
+  -thingstodo
+  -tours
   -5day weather outlook - (openweather?)
   -parkinglots (mapBox?)
   -passportstamplocations (mapbox?)
-  -amentities/parksplaces
-  -amenities/parkvisitorcenters
-  -Events --> User can save to their calendar
-  -thingstodo
-  -tours
 
-  SECOND PAGE: Basic information is done but this could be a full page onto itself
-  -Campground information (/campgrounds)
+  FIRST ADDITIONAL PAGE
+  -visitor Centers (/visitorcenters/{parkCode}) [Image Carousel]
     -multimedia / galleries (carousel)
+    -Name
+    -Contacts
+    -Directions
+    -Description (operatingHours.description - this looks more detailed) 
+    -Operating Hours / Exceptions
+    -isPassPortStampLocation - Icon/CheckMark (URL Image)
+    -Amenities
+    -
+
+  SECOND ADDITIONAL PAGE: Basic information is done but this could be a full page onto itself
+  -Campground information (/campgrounds/{parkCode})
+    -multimedia / galleries (carousel)
+    -Name
     -address
     -contacts
     -email

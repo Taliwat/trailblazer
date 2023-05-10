@@ -4,7 +4,7 @@ import Alerts from "../components/Alerts";
 import Reviews from "../components/Reviews/Reviews";
 import Activities from "../components/Activities";
 import Campgrounds from "../components/Campgrounds/Campgrounds";
-
+import Events from "../components/Events/Events"
 
 export default function ParkPage() {
     const { parkCode } = useParams() // eventually grab parkCode from params
@@ -51,6 +51,7 @@ export default function ParkPage() {
 
                     <Activities activities={park.activities}/>
                     <Campgrounds parkCode={parkCode} />
+                    <Events parkCode={parkCode} />
 
                     {/* Loop over reviews and spew them onto the page with review components passing in the current review as a prop */}
                     <Reviews />
