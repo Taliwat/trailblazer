@@ -43,7 +43,7 @@ const typeDefs = gql `
 
   #   queries
   type Query {
-    Users: [User]
+    users: [User]
     user(username: String!): User
     reviews(parkCode: String!): [Review]
     review(reviewId: ID!): Review
@@ -52,7 +52,7 @@ const typeDefs = gql `
 
   #   mutations
   type Mutation {
-    addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!, state: String!): Auth
     addReview(body: String!, score: Int!): Review
     removeUser(userId: String!, password: String!): Auth
     removeReview(body: String!, score: Int!): Review

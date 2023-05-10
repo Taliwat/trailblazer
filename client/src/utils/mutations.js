@@ -36,12 +36,16 @@ export const ADD_USER = gql`
     $lastName: String!
     $email: String!
     $password: String!
+    $username: String!
+    $state: String!
   ) {
     addUser(
       firstName: $firstName
       lastName: $lastName
       email: $email
       password: $password
+      username: $username
+      state: $state
     ) {
         token
         user {

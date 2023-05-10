@@ -47,13 +47,14 @@ export default function ParkPage() {
                         </div>
 
                         <Alerts parkCode={parkCode} />
+
                     </div>
 
                     <Activities activities={park.activities}/>
                     <Campgrounds parkCode={parkCode} />
 
                     {/* Loop over reviews and spew them onto the page with review components passing in the current review as a prop */}
-                    <Reviews />
+                    <Reviews parkCode={park.parkCode} />
                 </main>}
 
 

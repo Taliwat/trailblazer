@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Review from "./Review";
 
 export default function Reviews({ parkCode }) {
@@ -6,6 +7,7 @@ export default function Reviews({ parkCode }) {
 
     return (
         <section>
+            <Link to={`/review/:${parkCode}`}>Leave a review!</Link>
             {
                 reviews.map(review => {
                     return (
