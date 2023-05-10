@@ -8,11 +8,15 @@ const reviewSchema = new Schema(
       type: String,
       required: true
     },
-    author: [{
+    author: {
       type: Schema.Types.ObjectId,
       ref: 'User',
       required: true
-    }],
+    },
+    authorName: {
+      type: String,
+      required: true
+    },
     body: {
       type: String,
       required: true

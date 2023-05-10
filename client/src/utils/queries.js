@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 export const QUERY_USER = gql`
   {
     user {
+      _id
       firstName
       lastName
       username
@@ -24,11 +25,12 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_REVIEWS = gql`
-  query getReviews($parkCode: ID!) {
+  query getReviews($parkCode: String!) {
     reviews(parkCode: $parkCode) {
       _id
       parkCode
       author
+      authorName
       body
       score
       createdAt
@@ -52,7 +54,7 @@ export const QUERY_SINGLE_REVIEW = gql`
 `;
 
 export const QUERY_ME = gql`
-  query me {
+  {
     me {
         _id
         firstName
