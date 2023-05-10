@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import Alerts from "../components/Alerts";
 import Reviews from "../components/Reviews/Reviews";
 import Activities from "../components/Activities";
+import Campgrounds from "../components/Campgrounds/Campgrounds";
 
 
 export default function ParkPage() {
@@ -49,6 +50,7 @@ export default function ParkPage() {
                     </div>
 
                     <Activities activities={park.activities}/>
+                    <Campgrounds parkCode={parkCode} />
 
                     {/* Loop over reviews and spew them onto the page with review components passing in the current review as a prop */}
                     <Reviews />
