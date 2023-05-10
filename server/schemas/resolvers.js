@@ -33,7 +33,7 @@ const resolvers = {
             const user = await User.create({ firstName, lastName, username, email, password, state });
             const token = signToken(user);
 
-            return { token, profile };
+            return { token, user };
         },
         addReview: async (parent, { _id, score, body, parkCode  }, context) => {
             if (context.user) {
