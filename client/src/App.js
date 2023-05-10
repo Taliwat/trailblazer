@@ -14,6 +14,7 @@ import NavBar from "./components/Navigation.js";
 import Splash from "./components/Splash.js";
 import Login from "./pages/Login.js";
 import Signup from "./pages/Signup.js";
+import ReviewPage from "./pages/ReviewPage.js";
 
 const httpLink = createHttpLink({
   //heroku link will go here
@@ -60,6 +61,7 @@ function App() {
           <Route path="/" element={<HomePage state={state} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/review/:parkCode" element={<ReviewPage />} />
           {/* ////////ROUTE SPECIFIC PARK */}
           <Route path="/park/:parkCode" element={<ParkPage />} />
           {/* //////////SPECIFICPARK

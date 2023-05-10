@@ -47,7 +47,6 @@ export default function ParkPage() {
 
                         <Alerts parkCode={parkCode} />
                         {/* Loop over reviews and spew them onto the page with review components passing in the current review as a prop */}
-                        <Reviews />
                     </div>
 
                     <div className="w-full">
@@ -58,7 +57,7 @@ export default function ParkPage() {
                     <Activities activities={park.activities}/>
 
                     {/* Loop over reviews and spew them onto the page with review components passing in the current review as a prop */}
-                    <Reviews />
+                    <Reviews parkCode={park.parkCode} />
                 </main>}
 
 
