@@ -2,6 +2,8 @@ import MapBox from "../components/MapBox/MapBox"
 import { useEffect, useState } from "react"
 import { coords } from '../assets/coords.js'
 import { Link } from "react-router-dom"
+import Auth from "../utils/auth"
+
 
 // state will likely be upshifted and passed down as a prop and setState/state passed to Navbar
 export function HomePage({ state }) {
@@ -22,6 +24,8 @@ export function HomePage({ state }) {
         fetchMapData()
     }, [state, NPSURI])
 
+
+
     return (
         <>
             {<MapBox lonx={LOCATIONLON} latx={LOCATIONLAT} npsData={npsData} />}
@@ -33,9 +37,7 @@ export function HomePage({ state }) {
                                 <Link to={`/park/${park.parkCode}`}><p><b>{park.fullName}</b></p> </Link>
                                 <p>{park.description}</p>
                                 <p>Entrance Fees: {park?.entranceFees[0]?.cost} {park?.entranceFees[0]?.description || "0.00 Free"}</p>
-                                <p>Park Score: 5/5</p>
-                                <p>Leave a review</p>
-                                {/* ratings */}
+                                {Auth.loggedIn() && <Link to={`/review/${park.parkCode}?imgurl=${park.images[2]?.url || park.imgages[0]?.url}&parkname=${park.fullName}`} className="text-gray-900 italic hover:text-gray-700">Leave a review</Link>}
                             </div>
                             <div className="flex md:w-3/5 md:h-auto h-60 p-2">
                                 <img src={park.images[0]?.url} className="h-full w-full object-cover" alt={'park'} />

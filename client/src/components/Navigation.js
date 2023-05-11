@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom"
 import StateFilter from "./StateFilter"
 import logo from "../assets/imgs/logo.png"
+import Auth from '../utils/auth'
 
 export default function NavBar({ state, newState }) {
     const location = useLocation()
@@ -15,8 +16,10 @@ export default function NavBar({ state, newState }) {
                     <StateFilter state={state} newState={newState} />
                 )}
             </div>
+
             <div className=" md:w-48 w-40 h-full flex justify-center items-center">
-                <Link to={"/login"} className="font">Login</Link>
+                {Auth.loggedIn() ? <a href="/" className="text-2xl font-extrabold hover:text-gray-800" onClick={() => Auth.logout()}>Log Out</a> :
+                    <Link to={"/login"} className="text-2xl font-extrabold hover:text-gray-800">Login</Link>}
             </div>
         </nav>
     )

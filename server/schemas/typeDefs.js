@@ -1,10 +1,11 @@
 const { gql } = require('apollo-server-express');
 
-const typeDefs = gql `
+const typeDefs = gql`
   type Review {
     _id: ID
     parkCode: String
     author: String
+    authorName: String
     body: String
     score: Int
     createdAt: String
@@ -53,7 +54,7 @@ const typeDefs = gql `
   #   mutations
   type Mutation {
     addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!, state: String!): Auth
-    addReview(body: String!, score: Int!): Review
+    addReview(body: String!, score: Int!, parkCode: String!, _id: ID, authorName: String!): Review
     removeUser(userId: String!, password: String!): Auth
     removeReview(body: String!, score: Int!): Review
     # edit review and user TBD
