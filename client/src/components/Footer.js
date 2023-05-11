@@ -9,7 +9,7 @@ export default function Footer () {
                 <Link to={"/About Us"} >About Us</Link>
             </div>
             <div className=" w-1/12 h-full flex justify-center items-center font-mono font-semibold">
-                <Link to={"/Contact Us"} >Contact Us</Link>
+                <Link to={"/contact"} >Contact Us</Link>
             </div>
             
             
