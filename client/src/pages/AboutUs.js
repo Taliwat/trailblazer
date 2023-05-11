@@ -2,7 +2,7 @@
 
 
 
-export default function aboutUs () {
+export default function AboutUs () {
     return (
         <div className="about Us section">
             <h2 className="text-align-center">About Us</h2>
