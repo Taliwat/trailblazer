@@ -3,14 +3,9 @@ const validator = require('validator');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const reviewSchema = require('./Review');
 
 const userSchema = new Schema(
   {
-    userId: {
-      type: mongoose.Types.ObjectId,
-      default: () => new mongoose.Types.ObjectId()
-    },
     username: {
       type: String,
       required: true,
@@ -46,10 +41,9 @@ const userSchema = new Schema(
     parksVisited: {
       type: [String]
     },
-    whishList: {
+    wishList: {
       type: [String]
-    },
-    reviews: [reviewSchema]
+    }
   }
 );
 
