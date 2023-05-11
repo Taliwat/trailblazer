@@ -16,16 +16,18 @@ export const ADD_REVIEW = gql`
     $_id: ID!,
     $body: String!,
     $score: Int!,
-    $parkCode: String!
+    $parkCode: String!,
+    $authorName: String!
     ) {
-        addReview(_id: $_id, parkCode: $parkCode, body: $body, score: $score,) {
-          userId
+        addReview(_id: $_id, parkCode: $parkCode, body: $body, score: $score, authorName: $authorName) {
+          _id
           parkCode
           body
           author
+          authorName
           score
           createdAt
-          updatedat
+          updatedAt
         }
     }
 `
