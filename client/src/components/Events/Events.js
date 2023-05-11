@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import Eventdetails from "./Eventdetails";
 
-export default function Events ({ parkCode }) {
+export default function Events({ parkCode }) {
   const [eventData, setEventData] = useState([]);
 
   const ROOTNPSURI = 'https://developer.nps.gov/api/v1/events?parkCode='
-  const NPSURI = `${ROOTNPSURI}${parkCode}&api_key=${process.env.REACT_APP_NPS_API}` 
+  const NPSURI = `${ROOTNPSURI}${parkCode}&api_key=${process.env.REACT_APP_NPS_API}`
 
-  useEffect(() =>{
+  useEffect(() => {
     async function fetchEventData() {
       const response = await fetch(NPSURI);
       const data = await response.json();
@@ -17,20 +17,23 @@ export default function Events ({ parkCode }) {
   }, [NPSURI])
 
   return (
-    <div>
-      <br/>
-      {eventData.length ? 
-        <>
-        <div className="flex w-full">
-          <p className="font-extrabold text-black-600 text-2xl">Park events:</p>
-        </div>
-        <ul className="list-disc shadow-lg">
-        {eventData.map((event) => (
-         <Eventdetails event={event} key={event.id} />
-        ))}
-        </ul>
-        </>
-      :null}
-    </div>
+
+    <>
+      {
+        eventData.length ?
+          <div className="shadow-lg w-full">
+            <div className="flex w-full">
+              <p className="font-extrabold text-black-600 text-2xl">Park events:</p>
+            </div>
+            <ul className="list-disc shadow-lg">
+              {eventData.map((event) => (
+                <Eventdetails event={event} key={event.id} />
+              ))}
+            </ul>
+          </div>
+          : null
+      }
+    </>
+
   )
 }
