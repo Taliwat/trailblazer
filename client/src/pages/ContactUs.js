@@ -50,7 +50,7 @@ export default function ContactUs () {
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">Ryan Mennemeier</div>
     <p class="text-gray-700 text-base">
-    Insert short script for Ryan here.
+    Hi! I'm Ryan, a full stack developer with a passion for learning and creating things.  I'm currently looking for a position in the software industry.  Feel free to reach out to me if you have any questions!
     </p>
   </div>
   <div class="px-6 pt-4 pb-2">
