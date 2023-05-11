@@ -1,23 +1,23 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import StateFilter from "./StateFilter"
+import logo from "../assets/imgs/logo.png"
 
+export default function NavBar({ state, newState }) {
+    const location = useLocation()
 
-//creates a new Navbar that has our logo, a dropdown box for each state to search, and Login/Logout
-export default function NavBar () {
     return (
-        <nav className="w-full h-20 bg-stone-200 flex justify-between shadow-lg font-mono font-semibold border-solid border-2 rounded-lg">
-            <div className= "w-1/12 h-full flex justify-center items-center"> 
-                <Link to={"/"} className="bg-orange-300 h-5/6 w-1/2"></Link>
+        <nav className="w-full flex justify-between shadow-lg" style={{ height: '10vh', backgroundColor: '#a2a2a275' }}>
+            <div className="md:w-48 w-40 h-full flex justify-center items-center">
+                <Link to={"/"} className="h-5/6 w-1/2" style={{ backgroundImage: `url(${logo})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }}></Link>
             </div>
-            <div className=" w-1/12 h-full flex justify-center items-center">
-                <input type="text" className="bg-stone-50 w-full h-1/12"/>
+            <div className=" md:w-48 w-40 h-full flex justify-center items-center">
+                {location.pathname === '/' && (
+                    <StateFilter state={state} newState={newState} />
+                )}
             </div>
-            <div className=" w-1/12 h-full flex justify-center items-center ">
-                <Link to={"/login"} >Login</Link>
+            <div className=" md:w-48 w-40 h-full flex justify-center items-center">
+                <Link to={"/login"} className="font">Login</Link>
             </div>
-            
-            
-
-
         </nav>
     )
 }

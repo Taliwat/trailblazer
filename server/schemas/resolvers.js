@@ -4,51 +4,51 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-      reviews: async ( { reviewId }) => {
-        return await Review.find({ reviewId }).sort({ createdAt: -1});
+      reviews: async ({ parkCode }) => {
+        return await Review.find({ _id: parkCode }).sort({ createdAt: -1});
       },
 
-      review: async (parent, { parkCode }) => {
-        return await Review.findOne({ _id: parkCode });
+      review: async (parent, { _id }) => {
+        return await Review.findOne({ _id: _id });
       },
 
       users: async () => {
         return User.find();
       },
       
-      user: async (parent, { userId } ) => {
-        return await User.findOne({ _id: userId});
+      user: async (parent, { _id } ) => {
+        return await User.findOne({ _id: _id});
       },
       //get logged in user without specifically looking for them
       me: async (parent, args, context) => {
         if (context.user) {
-            return User.findOne({ _id: context.user.userId });
+            return User.findOne({ _id: context.user._id });
         }
         throw new AuthenticationError('You have to be logged in!');
       },
     },
 
-    mutation: {
+    Mutation: {
         addUser: async (parent, { firstName, lastName, username, email, password, state }) => {
             const user = await User.create({ firstName, lastName, username, email, password, state });
             const token = signToken(user);
 
-            return { token, profile };
+            return { token, user };
         },
-        addReview: async (parent, { userId, review, score, body, parkCode }, context) => {
+        addReview: async (parent, { _id, score, body, parkCode  }, context) => {
             if (context.user) {
-                return Profile.findOneAndUpdate(
-                  { _id: userId },
-                  {
-                    $addToSet: 
-                    { reviews: review, score, body, parkCode },
+              const review = Review.create({
+                body,
+                score,
+                parkCode,
+                author: context.user.username
+              });
 
-                  },
-                  {
-                    new: true,
-                    runValidators: true,
-                  }
-                );
+              await User.findOneAndUpdate(
+                { _id: _id },
+                { $addToSet: {reviews: review }}
+              );
+              return review;
             }
             throw new AuthenticationError('You have to be logged in!');
         },
@@ -60,11 +60,11 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         //logged in user can only remove their reviews
-        removeReview: async (parent, { reviewId }, context) => {
+        removeReview: async (parent, { _id }, context) => {
           //delete the whole review itself
           if (context.user) {
             const review = Review.findOneAndDelete({ 
-              _id: reviewId,
+              _id: _id,
               author: context.user.username,
             });
         

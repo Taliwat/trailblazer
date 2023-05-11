@@ -12,7 +12,7 @@ const typeDefs = gql `
   }
 
   type User {
-    _id: _id
+    _id: ID
     username: String
     firstName: String
     lastName: String
@@ -20,8 +20,8 @@ const typeDefs = gql `
     password: String
     state: String
     parksVisited: String
-    wishList: [wishList]
-    reviews: [Review]!
+    wishList: [String]
+    reviews: [String]
   }
 
   type Park {
@@ -43,16 +43,16 @@ const typeDefs = gql `
 
   #   queries
   type Query {
-    Users: [User]
+    users: [User]
     user(username: String!): User
-    reviews(username: String): [Review]
-    review(reviewId: ID!): Thought
+    reviews(parkCode: String!): [Review]
+    review(reviewId: ID!): Review
     me: User
   }
 
   #   mutations
   type Mutation {
-    addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!, state: String!): Auth
     addReview(body: String!, score: Int!): Review
     removeUser(userId: String!, password: String!): Auth
     removeReview(body: String!, score: Int!): Review

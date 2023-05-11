@@ -18,6 +18,14 @@ export default function MapBox({ lonx, latx, npsData }) {
     const [lng, setLng] = useState(lonx);
     const [lat, setLat] = useState(latx);
     const [zoom, setZoom] = useState(5);
+    const markers = useRef([])
+
+    useEffect(() => {
+        setLat(latx)
+        setLng(lonx)
+        if (!map.current) return; // wait for map to initialize
+        map.current.setCenter([lonx, latx]); // update the map's center
+    }, [latx, lonx])
 
     useEffect(() => {
         if (map.current || !npsData.data) return; // initialize map only once
@@ -27,21 +35,34 @@ export default function MapBox({ lonx, latx, npsData }) {
             center: [lng, lat],
             zoom: zoom
         });
+    })
+
+    useEffect(() => {
+        if (!npsData.data) return
 
         async function populateMap() {
-            npsData.data.map((feature) => {
+            // Remove existing markers from the map and clear the markers array
+            markers.current.forEach((marker) => marker.remove());
+            markers.current = []
+
+            // Loop through npsData.data and create new markers
+            npsData.data.forEach((feature) => {
                 const popup = new mapboxgl.Popup({ offset: 15 })
                     .setHTML(`<p><b>${feature.fullName}</b></p>
                             <p>${feature.addresses[0].city} ${feature.addresses[0].line1} ${feature.addresses[0].postalCode}</p>`);
 
-                return new mapboxgl.Marker()
+                const marker = new mapboxgl.Marker()
                     .setLngLat({ lng: feature.longitude, lat: feature.latitude })
                     .setPopup(popup)
                     .addTo(map.current);
+
+                // Add the new marker to the newMarkers array
+                markers.current.push(marker);
             });
         }
+
         populateMap()
-    });
+    }, [npsData]);
 
     useEffect(() => {
         if (!map.current) return; // wait for map to initialize
@@ -53,7 +74,7 @@ export default function MapBox({ lonx, latx, npsData }) {
     });
 
     return (
-        <div>
+        <div className='relative'>
             <div className="sidebar">
                 Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
             </div>

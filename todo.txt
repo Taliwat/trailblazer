@@ -12,29 +12,37 @@
 -Park Page (Shows details about the park using the nps database)
 
 *These are the information components that would be great for each individual park* - JJ
-  -MapData - Park Boundaries as a layer in mapbox (/mapdata/parkboundaries/{sitecode})
-  -Park Alerts (/alerts)
-  -5day weather outlook - openweather
-  -Activities
-  -amentities/parksplaces
-  -amenities/parkvisitorcenters
-  -places (mapbox?)
-  -Events --> User can save to their calendar
+  DONE - Park Alerts (/alerts)
+  DONE - Activities
+  DONE - Basic Campground Info Alert
+  -Events
   -thingstodo
   -tours
-  -Articles & newsreleases
-  -parkinglots
+  -5day weather outlook - (openweather?)
+  -parkinglots (mapBox?)
   -passportstamplocations (mapbox?)
-  -Campground information (/campgrounds)
+
+  FIRST ADDITIONAL PAGE
+  -visitor Centers (/visitorcenters/{parkCode}) [Image Carousel]
     -multimedia / galleries (carousel)
-    -weatheroverview
-    -5 day weather (openWeather)
+    -Name
+    -Contacts
+    -Directions
+    -Description (operatingHours.description - this looks more detailed) 
+    -Operating Hours / Exceptions
+    -isPassPortStampLocation - Icon/CheckMark (URL Image)
+    -Amenities
+    -
+
+  SECOND ADDITIONAL PAGE: Basic information is done but this could be a full page onto itself
+  -Campground information (/campgrounds/{parkCode})
+    -multimedia / galleries (carousel)
+    -Name
     -address
     -contacts
     -email
     -url
     -description
-    -regulationsurl
     -directionsoverview
     -directionsurl
     -fees
@@ -49,7 +57,9 @@
       "electricalhookups": 0,
       "rvonly": 0,
       "walkboatto": 0
-    npm-reservationsURL
+    -reservationsURL
+    -regulationsurl
+
   
 -Contact Page (basic details about how to contact us... credit profiles... etc...)
 ----------Feature Ideas-------

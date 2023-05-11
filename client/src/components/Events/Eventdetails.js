@@ -1,0 +1,31 @@
+export default function Eventdetails({ event }){
+
+  const description = event.description.replace(/<[^>]+>/g, '');
+
+  function handleClick(event, description){
+    alert(
+      `${event.title}\n
+      Description:\n
+      ${description}\n
+      Location:\n
+      ${event.location}\n
+      Date: ${event.datestart}\n
+      Time: ${event.times[0].timestart} - ${event.times[0].timeend}\n
+      Is it free: ${event.isfree}\n
+      Contact: ${event.contactname}\n
+      Contact Telephone: ${event.contacttelephonenumber}\n
+      Contact Email: ${event.contactemailaddress}
+      `
+    );
+  };
+
+  function handleButtonClick(){
+    handleClick(event, description);
+  }
+
+  return(
+    <li>
+      <button key={event.id} onClick={handleButtonClick}><h1 className="text-xl">{event.title}</h1></button>
+    </li>
+  )
+}

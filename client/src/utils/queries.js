@@ -1,0 +1,64 @@
+import { gql } from '@apollo/client';
+
+export const QUERY_USER = gql`
+  {
+    user {
+      firstName
+      lastName
+      username
+      wishList {
+        parks{
+          _id
+          NPS_id
+          url
+          fullName
+          parkCode
+          latitude
+          longitude
+          states
+          designation
+        }
+      }
+    }
+  }
+`;
+
+export const QUERY_REVIEWS = gql`
+  query getReviews($parkCode: ID!) {
+    reviews(parkCode: $parkCode) {
+      _id
+      parkCode
+      author
+      body
+      score
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+export const QUERY_SINGLE_REVIEW = gql`
+  query getSingleReview($_id: ID!) {
+    review(_id: $_id) {
+      _id
+      parkCode
+      author
+      body
+      score
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  query me {
+    me {
+        _id
+        firstName
+        lastName
+        username
+        email
+    }
+  }
+`;
