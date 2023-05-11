@@ -2,7 +2,7 @@
 //create a Contact page that gives information about the team and how to contact us!  be a bit creative here, and be able to have users have a button that can send emails given the provided email in the team member's profile.
 export default function ContactUs () {
     return (
-<div className="contact us section">
+<div className="bg-gray-100">
 
     <h2 className="text-align-center ">Meet the Team!</h2>
     <div className="row-span-4">
