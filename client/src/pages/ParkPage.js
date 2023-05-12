@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import { useQuery } from "@apollo/client";
+import { QUERY_REVIEWS } from "../utils/queries";
 import Alerts from "../components/Alerts";
 import Reviews from "../components/Reviews/Reviews";
 import Activities from "../components/Activities";
 import Campgrounds from "../components/Campgrounds/Campgrounds";
 import Events from "../components/Events/Events"
-import { useQuery } from "@apollo/client";
-import { QUERY_REVIEWS } from "../utils/queries";
+import WishVisit from "../components/VisitedWish/WishVisit";
+
 
 export default function ParkPage() {
     const { parkCode } = useParams() // eventually grab parkCode from params
@@ -16,7 +18,8 @@ export default function ParkPage() {
     const { loading, error, data: reviewData } = useQuery(QUERY_REVIEWS, {
         variables: {
             parkCode: parkCode
-        }
+        },
+        fetchPolicy: 'network-only'
     })
 
     //fetch that park based on parkCode from DB or from NPS
@@ -35,19 +38,20 @@ export default function ParkPage() {
     if (!parkData?.data) return <h1>Loading...</h1>
     const park = parkData.data[0]
 
-
-
     return (
         <>
             {parkData &&
                 <main className="w-full h-full">
-                    <div className="flex w-full" style={{ height: `65vh` }}>
+                    <div className="flex w-full bg-white" style={{ height: `65vh` }}>
                         <img src={park.images[1].url} className="h-full w-full object-cover object-bottom" alt={park.fullName} />
                     </div>
                     <div className="m-2 flex flex-col gap-5">
-                        <div className="flex w-full gap-10">
-                            <h1 className="font-extrabold text-4xl">{park.fullName}</h1>
-                            {reviewData.reviews.length > 0 ? <h4 className="font-extrabold text-4xl text-gray-700">{(reviewData.reviews.map(review => review.score).reduce((sum, value) => { return sum + value }) / reviewData.reviews.length).toFixed(2)}/5</h4> : null}
+                        <div className="flex w-full gap-5 justify-between">
+                            <div className="flex w-4/5 gap-5">
+                                <h1 className="font-extrabold text-4xl">{park.fullName}</h1>
+                                {reviewData && reviewData.reviews.length > 0 ? <h4 className="font-extrabold text-4xl text-gray-700">{(reviewData.reviews.map(review => review.score).reduce((sum, value) => { return sum + value }) / reviewData.reviews.length).toFixed(2)}/5</h4> : null}
+                            </div>
+                            <WishVisit parkCode={parkCode} />
                         </div>
                         <div className="w-full">
                             <p className="text-2xl">{park.description} <a className="text-blue-400" target="_blank" rel='noreferrer' href={park.url}>{park.url}</a></p>
@@ -56,12 +60,10 @@ export default function ParkPage() {
                         <Activities activities={park.activities} />
                         <Campgrounds parkCode={parkCode} />
                         <Events parkCode={parkCode} />
+                        {error && <h1>Error loading reviews</h1>}
                         {loading ? <h1>Loading...</h1> : <Reviews park={park} reviewData={reviewData} />}
                     </div>
                 </main>}
-
-
         </>
     )
-
 }

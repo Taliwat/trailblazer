@@ -10,7 +10,7 @@
     "scrape": "cd server/models/seed/ && node scrap.js",
     "seed": "cd server/models/seed/ && node seed.js",
     "build": "cd client && npm run build",
-    "newdev": "cd client && npm run build & cd ../server && node server.js"
+    "newdev": "cd client && npm run build && cd ../server && node server.js"
   },
   "keywords": [],
   "author": "",

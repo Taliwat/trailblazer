@@ -50,11 +50,11 @@ export default function ReviewPage() {
   return (
     <div className='w-full flex items-center justify-center font-bold bg-white' style={{ height: '90vh' }}>
       <section className='w-full h-full flex items-center justify-center font-bold' style={{ backgroundImage: `url(${imgurl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="flex flex-col justify-center items-center md:w-1/2 w-full rounded-md p-2" style={{ backgroundColor: '#aaaaaa87' }}>
+        <div className="flex flex-col justify-center items-center md:w-1/2 w-full rounded-md p-2" style={{ backgroundColor: '#aaaaaadb' }}>
           <form className='flex flex-col justify-center items-center gap-5' onSubmit={handleFormSubmit} >
-            <div className="flex justify-center items-center gap-2 bg-gray-500 bg-opacity-50">
+            <div className="flex justify-center items-center gap-2">
               <label htmlFor="score">Score:</label>
-              <Rating name="score" onChange={handleChange} required />
+              <Rating name="score" onChange={handleChange} unratedColor="yellow" ratedColor="yellow" className="h-10 w-10 content" required />
             </div>
             <div className="flex flex-col justify-center items-center gap-2">
               <label htmlFor="body">Review: </label>
@@ -64,7 +64,7 @@ export default function ReviewPage() {
           </form>
         </div>
       </section>
-      <h1 className="absolute bottom-5 left-5 text-5xl text-gray-800">{parkName}</h1>
+      <h1 className="absolute bottom-5 left-5 text-5xl hover:text-gray-800">{parkName}</h1>
     </div>
   )
 }
