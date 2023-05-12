@@ -1,9 +1,9 @@
-export default function WeatherCard ({ weather }) {
+export default function Weathercard ({ weather }) {
   // `https://openweathermap.org/img/wn/${weather.icon}@2x.png`
 
   return(
-    <div className="rounded overflow-hidden shadow-lg">
-      {weather.dt_txt}
+    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+      <p>{weather}</p>
     </div>
   )
 }

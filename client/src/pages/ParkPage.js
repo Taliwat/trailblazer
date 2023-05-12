@@ -54,7 +54,7 @@ export default function ParkPage() {
                             <p className="text-2xl">{park.description} <a className="text-blue-400" target="_blank" rel='noreferrer' href={park.url}>{park.url}</a></p>
                         </div>
                         <Alerts parkCode={parkCode} />
-                        <Weather parkCode={parkCode} />
+                        <Weather park={park} />
                         <Activities activities={park.activities} />
                         <Campgrounds parkCode={parkCode} />
                         <Events parkCode={parkCode} />
