@@ -48,6 +48,58 @@ const resolvers = {
       }
       throw new AuthenticationError('You have to be logged in!');
     },
+
+    addWishList: async (parent, { parkCode }, context) => {
+      if (!context.user) throw new AuthenticationError('You have to be logged in!');
+
+      const user = await User.findOne({ _id: context.user._id })
+
+      if (user.wishList.includes(parkCode)) return user
+
+      user.wishList = [...user.wishList, parkCode]
+      await user.save()
+
+      return user
+    },
+
+    addVisitList: async (parent, { parkCode }, context) => {
+      if (!context.user) throw new AuthenticationError('You have to be logged in!');
+
+      const user = await User.findOne({ _id: context.user._id })
+
+      if (user.parksVisited.includes(parkCode)) return user
+
+      user.parksVisited = [...user.parksVisited, parkCode]
+      await user.save()
+
+      return user
+    },
+
+    removeWishList: async (parent, { parkCode }, context) => {
+      if (!context.user) throw new AuthenticationError('You have to be logged in!');
+      const user = await User.findOne({ _id: context.user._id })
+
+      if (!user.wishList.includes(parkCode)) return user
+
+      const newWishList = user.wishList.filter(park => park != parkCode)
+      user.wishList = newWishList
+      await user.save()
+
+      return user
+    },
+
+    removeVisitList: async (parent, { parkCode }, context) => {
+      if (!context.user) throw new AuthenticationError('You have to be logged in!');
+      const user = await User.findOne({ _id: context.user._id })
+
+      if (!user.parksVisited.includes(parkCode)) return user
+
+      const newParkList = user.parksVisited.filter(park => park != parkCode)
+      user.parksVisited = newParkList
+      await user.save()
+
+      return user
+    },
     //remove your account only if logged in 
     removeUser: async (parent, args, context) => {
       if (context.user) {
