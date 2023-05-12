@@ -5,6 +5,7 @@ import Reviews from "../components/Reviews/Reviews";
 import Activities from "../components/Activities";
 import Campgrounds from "../components/Campgrounds/Campgrounds";
 import Events from "../components/Events/Events"
+import Weather from "../components/Weather/Weather"
 import { useQuery } from "@apollo/client";
 import { QUERY_REVIEWS } from "../utils/queries";
 
@@ -53,6 +54,7 @@ export default function ParkPage() {
                             <p className="text-2xl">{park.description} <a className="text-blue-400" target="_blank" rel='noreferrer' href={park.url}>{park.url}</a></p>
                         </div>
                         <Alerts parkCode={parkCode} />
+                        <Weather parkCode={parkCode} />
                         <Activities activities={park.activities} />
                         <Campgrounds parkCode={parkCode} />
                         <Events parkCode={parkCode} />

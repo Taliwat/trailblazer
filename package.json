@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node server --ignore client",
-    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "scrape": "cd server/models/seed/ && node scrap.js",
     "seed": "cd server/models/seed/ && node seed.js",
     "build": "cd client && npm run build",
-    "newdev": "cd client && npm run build & cd ../server && node server.js"
+    "newdev": "cd client && npm run build && cd ../server && node server.js"
   },
   "keywords": [],
   "author": "",
