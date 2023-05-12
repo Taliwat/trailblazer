@@ -56,3 +56,35 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_WISHLIST = gql`
+  mutation addWishList($parkCode: String!) {
+    addWishList(parkCode: $parkCode){
+      _id
+    }
+  }
+`
+
+export const ADD_VISITLIST = gql`
+  mutation addVisitList($parkCode: String!) {
+    addVisitList(parkCode: $parkCode){
+      _id
+    }
+  }
+`
+
+export const REMOVE_WISHLIST = gql`
+  mutation removeWishList($parkCode: String!) {
+    removeWishList(parkCode: $parkCode){
+        _id
+    }
+  }
+`
+
+export const REMOVE_VISITLIST = gql`
+  mutation removeVisitList($parkCode: String!) {
+    removeVisitList(parkCode: $parkCode){
+        _id
+    }
+  }
+`
