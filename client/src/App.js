@@ -47,8 +47,6 @@ function App() {
     setState(state)
   }
 
-  console.log(state)
-
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>

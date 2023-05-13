@@ -8,8 +8,6 @@ import Activities from "../components/Activities";
 import Campgrounds from "../components/Campgrounds/Campgrounds";
 import Events from "../components/Events/Events"
 import Weather from "../components/Weather/Weather"
-import { useQuery } from "@apollo/client";
-import { QUERY_REVIEWS } from "../utils/queries";
 import WishVisit from "../components/VisitedWish/WishVisit";
 
 
@@ -62,7 +60,7 @@ export default function ParkPage() {
                         <Alerts parkCode={parkCode} />
                         <Activities activities={park.activities} />
                         <Weather park={park} />
-                        <div id="Container_C_E"className="flex flex-row flex-wrap shadow-lg">
+                        <div id="Container_C_E" className="flex flex-row flex-wrap shadow-lg">
                             <Campgrounds parkCode={parkCode} />
                             <Events parkCode={parkCode} />
                         </div>
