@@ -16,18 +16,18 @@ export default function Alert({ parkCode }) {
   }, [NPSURI])
 
   return (
-    <div>
+    <>
       {alertData.length ?
         <>
-          <div className="flex w-full">
-            <p className="font-extrabold text-red-600 text-2xl">Park Alerts:</p>
+          <div id="Alerts" className="p-2 w-screen shadow-lg">
+              <p className="font-extrabold text-red-600 text-2xl">Park Alerts:</p>
+            <ul className="list-disc">
+              {alertData.map((alert) => (
+                <li key={alert.id}><h1 className="text-xl">{alert.description}</h1></li>))}
+            </ul>
           </div>
-          <ul className="list-disc shadow-lg">
-            {alertData.map((alert) => (
-              <li key={alert.id}><h1 className="text-xl">{alert.description}</h1></li>))}
-          </ul>
         </>
         : null}
-    </div>
+    </>
   )
 }

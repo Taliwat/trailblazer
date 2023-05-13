@@ -29,7 +29,7 @@ export default function Campclick({ camp }){
   }
 
   return(
-    <li>
+    <li className="truncate">
       <button key={camp.id} onClick={handleButtonClick}>{camp.name}</button>
     </li>
   )

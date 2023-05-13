@@ -4,7 +4,7 @@ export default function Activities({ activities }) {
 
   return (
     <>
-      <div className="shadow-lg w-full">
+      <div id="Activities" className="p-2 shadow-lg w-screen">
         <p className="text-xl font-extrabold">Activities:</p>
         <ul>
           {activities.map((activity) => (

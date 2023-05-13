@@ -24,7 +24,7 @@ export default function Eventdetails({ event }){
   }
 
   return(
-    <li>
+    <li className="truncate">
       <button key={event.id} onClick={handleButtonClick}>{event.title}</button>
     </li>
   )
