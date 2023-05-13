@@ -51,7 +51,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <div id="Page_Container" className="max-w-screen">
+        <div id="Page_Container" className="max-w-full">
           <NavBar state={state} newState={newState} />
           <Splash />
           <Routes>

@@ -41,21 +41,21 @@ export default function ParkPage() {
     return (
         <>
             {parkData &&
-                <main className="w-screen h-full">
-                    <div className="flex w-screen" style={{ height: `65vh` }}>
-                        <img src={park.images[1].url} className="h-full w-screen object-cover object-bottom" alt={park.fullName} style={{ backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}/>
+                <main className="w-full h-full">
+                    <div className="flex w-full" style={{ height: `65vh` }}>
+                        <img src={park.images[1].url} className="h-full w-full object-cover object-bottom" alt={park.fullName} style={{ backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}/>
                     </div>
                     <div className="m-2 flex flex-col gap-5">
-                        <div className="flex w-screen gap-10">
+                        <div className="flex w-full gap-10">
                             <h1 className="font-extrabold text-4xl">{park.fullName}</h1>
                             {reviewData.reviews.length > 0 ? <h4 className="font-extrabold text-4xl text-gray-700">{(reviewData.reviews.map(review => review.score).reduce((sum, value) => { return sum + value }) / reviewData.reviews.length).toFixed(2)}/5</h4> : null}
                         </div>
-                        <div className="w-screen">
+                        <div className="w-full">
                             <p className="text-2xl">{park.description} <a className="text-blue-400" target="_blank" rel='noreferrer' href={park.url}>{park.url}</a></p>
                         </div>
                         <Alerts parkCode={parkCode} />
-                        <Weather park={park} />
                         <Activities activities={park.activities} />
+                        <Weather park={park} />
                         <div id="Container_C_E"className="flex flex-row flex-wrap shadow-lg">
                             <Campgrounds parkCode={parkCode} />
                             <Events parkCode={parkCode} />

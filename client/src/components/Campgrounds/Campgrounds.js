@@ -48,7 +48,7 @@ export default function Campgrounds({ parkCode }) {
     <>
       {
         campData.length ?
-          <div id="Campground_List" className="p-2 grow-0 w-screen md:w-5/12">
+          <div id="Campground_List" className="p-2 grow-0 w-full md:w-5/12">
             <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
               <AccordionHeader onClick={() => handleOpen(1)}>
                 <p className="font-extrabold text-black-600 text-2xl">Camp Grounds:⛺</p>
