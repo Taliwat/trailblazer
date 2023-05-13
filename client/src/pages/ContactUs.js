@@ -9,9 +9,9 @@ import clown from "../assets/imgs/clown.jpg"
 export default function ContactUs() {
   return (
     <>
-      <section className="flex flex-col justify-around items-center bg-gray-100" style={{ minHeight: '90vh' }}>
+      <section className="flex flex-col justify-around items-center bg-gray-100 p-5" style={{ minHeight: '90vh' }}>
         <h2 className="text-align-center text-3xl font-bold text-gray-700 flex justify-center pt-4">Meet the Team!</h2>
-        <div className="bg-gray-100 flex flex-col gap-5 w-full justify-center items-center">
+        <div className="bg-gray-100 flex flex-col gap-5 w-full justify-center items-center ">
           <div className="grid md:grid-cols-2 md:grid-rows-2 grid-cols-1 gap-5">
             <div className="rounded md:overflow-y-scroll shadow-lg flex flex-col p-2 gap-3 h-96">
               <img className="w-full object-contain h-3/6" src={johnpic} alt="John self" />

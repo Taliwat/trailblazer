@@ -19,8 +19,8 @@ export default function Alert({ parkCode }) {
     <>
       {alertData.length ?
         <>
-          <div id="Alerts" className="p-2 w-screen shadow-lg">
-              <p className="font-extrabold text-red-600 text-2xl">Park Alerts:</p>
+          <div id="Alerts" className="p-2 shadow-lg">
+            <p className="font-extrabold text-red-600 text-2xl">Park Alerts:</p>
             <ul>
               {alertData.map((alert) => (
                 <li key={alert.id}><h1 className="text-xl">{alert.description}</h1></li>))}
