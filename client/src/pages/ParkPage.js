@@ -8,8 +8,6 @@ import Activities from "../components/Activities";
 import Campgrounds from "../components/Campgrounds/Campgrounds";
 import Events from "../components/Events/Events"
 import Weather from "../components/Weather/Weather"
-import { useQuery } from "@apollo/client";
-import { QUERY_REVIEWS } from "../utils/queries";
 import WishVisit from "../components/VisitedWish/WishVisit";
 
 
