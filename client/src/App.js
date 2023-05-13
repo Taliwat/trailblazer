@@ -15,6 +15,9 @@ import Splash from "./components/Splash.js";
 import Login from "./pages/Login.js";
 import Signup from "./pages/Signup.js";
 import ReviewPage from "./pages/ReviewPage.js";
+import ContactUs from "./pages/ContactUs.js";
+import AboutUs from "./pages/AboutUs.js";
+import Footer from "./components/Footer.js"
 
 const httpLink = createHttpLink({
   //heroku link will go here
@@ -55,9 +58,12 @@ function App() {
           <Route path="/" element={<HomePage state={state} />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/review/:parkCode" element={<ReviewPage />} />
           <Route path="/park/:parkCode" element={<ParkPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ApolloProvider>
   );
