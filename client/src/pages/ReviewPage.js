@@ -54,7 +54,7 @@ export default function ReviewPage() {
           <form className='flex flex-col justify-center items-center gap-5' onSubmit={handleFormSubmit} >
             <div className="flex justify-center items-center gap-2">
               <label htmlFor="score">Score:</label>
-              <Rating name="score" onChange={handleChange} unratedColor="yellow" ratedColor="yellow" className="h-10 w-10 content" required />
+              <Rating name="score" onChange={handleChange} unratedColor="yellow" ratedColor="yellow" className="h-10 content" required />
             </div>
             <div className="flex flex-col justify-center items-center gap-2">
               <label htmlFor="body">Review: </label>

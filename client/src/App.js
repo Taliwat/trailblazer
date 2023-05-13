@@ -54,15 +54,17 @@ function App() {
       <BrowserRouter>
         <NavBar state={state} newState={newState} />
         <Splash />
-        <Routes>
-          <Route path="/" element={<HomePage state={state} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/review/:parkCode" element={<ReviewPage />} />
-          <Route path="/park/:parkCode" element={<ParkPage />} />
-        </Routes>
+        <main style={{ minHeight: '90vh' }}>
+          <Routes>
+            <Route path="/" element={<HomePage state={state} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/review/:parkCode" element={<ReviewPage />} />
+            <Route path="/park/:parkCode" element={<ParkPage />} />
+          </Routes>
+        </main>
         <Footer />
       </BrowserRouter>
     </ApolloProvider>
