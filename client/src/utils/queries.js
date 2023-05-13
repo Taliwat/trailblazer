@@ -61,6 +61,8 @@ export const QUERY_ME = gql`
         lastName
         username
         email
+        parksVisited
+        wishList
     }
   }
 `;

@@ -15,6 +15,9 @@ import Splash from "./components/Splash.js";
 import Login from "./pages/Login.js";
 import Signup from "./pages/Signup.js";
 import ReviewPage from "./pages/ReviewPage.js";
+import ContactUs from "./pages/ContactUs.js";
+import AboutUs from "./pages/AboutUs.js";
+import Footer from "./components/Footer.js"
 
 const httpLink = createHttpLink({
   //heroku link will go here
@@ -36,8 +39,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
-
 function App() {
   //eventually shift to useContext component?
   const [state, setState] = useState('MI')
@@ -51,25 +52,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <div id="Page_Container" className="max-w-full">
-          <NavBar state={state} newState={newState} />
-          <Splash />
-          <Routes>
-            {/* {/* ////USERCONTEXT */}
-            {/* //////ROUTES
-        ////////ROUTE HOME
-        //////////HOMEPAGE (probably mapbox is imported there) */}
-            <Route path="/" element={<HomePage state={state} />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/review/:parkCode" element={<ReviewPage />} />
-            {/* ////////ROUTE SPECIFIC PARK */}
-            <Route path="/park/:parkCode" element={<ParkPage />} />
-            {/* //////////SPECIFICPARK
-        //////ROUTES
-        ////USERCONTEXT */}
-          </Routes>
-        </div>
+        <NavBar state={state} newState={newState} />
+        <Splash />
+        <Routes>
+          <Route path="/" element={<HomePage state={state} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/review/:parkCode" element={<ReviewPage />} />
+          <Route path="/park/:parkCode" element={<ParkPage />} />
+        </Routes>
+        <Footer />
       </BrowserRouter>
     </ApolloProvider>
   );

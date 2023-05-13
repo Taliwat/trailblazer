@@ -20,7 +20,7 @@ const typeDefs = gql`
     email: String
     password: String
     state: String
-    parksVisited: String
+    parksVisited: [String]
     wishList: [String]
     reviews: [String]
   }
@@ -57,8 +57,11 @@ const typeDefs = gql`
     addReview(body: String!, score: Int!, parkCode: String!, _id: ID, authorName: String!): Review
     removeUser(userId: String!, password: String!): Auth
     removeReview(body: String!, score: Int!): Review
-    # edit review and user TBD
     login(email: String!, password: String!): Auth
+    addVisitList(parkCode: String!): User
+    removeVisitList(parkCode: String!): User
+    addWishList(parkCode: String!): User
+    removeWishList(parkCode: String!): User
   }
 `;
 

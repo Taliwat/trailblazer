@@ -9,9 +9,9 @@ import { ADD_USER } from '../utils/mutations';
 import { states } from '../assets/states';
 import signup from '../assets/imgs/signup.webp'
 
-function Signup(props) {
+function Signup() {
   // track the state of the form fields (email and password)
-  const [formState, setFormState] = useState({ email: '', password: '', firstName: '', lastName: '', username: '', state: '' });
+  const [formState, setFormState] = useState({ email: '', password: '', firstName: '', lastName: '', username: '', state: 'MI' });
   // initialize addUser from useMutation(ADD_USER)
   const [addUser] = useMutation(ADD_USER);
 
@@ -19,7 +19,6 @@ function Signup(props) {
   // should probably have had error handling
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState)
     if (!formState.email || !formState.password || !formState.firstName || !formState.lastName || !formState.state) return alert("Signup incomplete")
     const mutationResponse = await addUser({
       variables: {
@@ -116,7 +115,7 @@ function Signup(props) {
             </div>
             <div className='flex justify-start w-4/5'>
               <label htmlFor="state" className='w-36 text-lg'>State:</label>
-              <select onChange={handleChange} name="state" defaultValue={'MI'} className='w-48 p-1 shadow-inner shadow-gray-400'>
+              <select onChange={handleChange} name="state" defaultValue={'MI'} className='w-4/5 p-1 shadow-inner shadow-gray-400'>
                 {states.map((state) => (
                   <option value={state.abbreviation} key={state.abbreviation}>
                     {state.name}
