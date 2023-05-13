@@ -5,7 +5,6 @@ export default function Weather ({ park }) {
   const [weatherData, setWeatherData] = useState([]);
   const lat = parseFloat(park.latitude);
   const lon = parseFloat(park.longitude);
-
   const openWeatherURI = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_API}`
 
   useEffect(() =>{
@@ -18,15 +17,11 @@ export default function Weather ({ park }) {
   }, [openWeatherURI])
 
   useEffect(()=>{
-    function filter(weatherData){
-      for(let i=0; i<weatherData.length; i++){
-        
-      }
-    }
+    return
   }, [weatherData])
 
   return(
-    <div>
+    <div id="Weather">
       WEATHER
       {/* {weatherData.filter(weather.dt_tx => weather.include().map((weather) => (
         <Weathercard weather={weather} key={weather.dt}/>

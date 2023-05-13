@@ -51,23 +51,25 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <NavBar state={state} newState={newState} />
-        <Splash />
-        <Routes>
-          {/* {/* ////USERCONTEXT */}
-          {/* //////ROUTES
-      ////////ROUTE HOME
-      //////////HOMEPAGE (probably mapbox is imported there) */}
-          <Route path="/" element={<HomePage state={state} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/review/:parkCode" element={<ReviewPage />} />
-          {/* ////////ROUTE SPECIFIC PARK */}
-          <Route path="/park/:parkCode" element={<ParkPage />} />
-          {/* //////////SPECIFICPARK
-      //////ROUTES
-      ////USERCONTEXT */}
-        </Routes>
+        <div id="Page_Container" className="max-w-screen">
+          <NavBar state={state} newState={newState} />
+          <Splash />
+          <Routes>
+            {/* {/* ////USERCONTEXT */}
+            {/* //////ROUTES
+        ////////ROUTE HOME
+        //////////HOMEPAGE (probably mapbox is imported there) */}
+            <Route path="/" element={<HomePage state={state} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/review/:parkCode" element={<ReviewPage />} />
+            {/* ////////ROUTE SPECIFIC PARK */}
+            <Route path="/park/:parkCode" element={<ParkPage />} />
+            {/* //////////SPECIFICPARK
+        //////ROUTES
+        ////USERCONTEXT */}
+          </Routes>
+        </div>
       </BrowserRouter>
     </ApolloProvider>
   );
