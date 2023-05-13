@@ -21,7 +21,7 @@ export default function Alert({ parkCode }) {
         <>
           <div id="Alerts" className="p-2 w-screen shadow-lg">
               <p className="font-extrabold text-red-600 text-2xl">Park Alerts:</p>
-            <ul className="list-disc">
+            <ul>
               {alertData.map((alert) => (
                 <li key={alert.id}><h1 className="text-xl">{alert.description}</h1></li>))}
             </ul>

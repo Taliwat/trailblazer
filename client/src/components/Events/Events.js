@@ -6,9 +6,27 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 
+ 
+function Icon({ id, open }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className={`${
+        id === open ? "rotate-180" : ""
+      } h-5 w-5 transition-transform`}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  );
+}
+
 export default function Events({ parkCode }) {
   const [eventData, setEventData] = useState([]);
-  const [open, setOpen] = useState(1);
+  const [open, setOpen] = useState(0);
  
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -30,10 +48,10 @@ export default function Events({ parkCode }) {
     <>
       {
         eventData.length ?
-          <div className="p-2 grow-0 w-screen md:w-2/3">
-            <Accordion open={open === 0}>
+          <div id="Event_List" className="p-2 grow-0 w-screen md:w-7/12">
+            <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
               <AccordionHeader onClick={() => handleOpen(1)}>
-                  <p className="font-extrabold text-black-600 text-2xl">Park events:</p>
+                  <p className="font-extrabold text-black-600 text-2xl">Park events:🗓</p>
               </AccordionHeader>
               <AccordionBody>
                 <ul>
