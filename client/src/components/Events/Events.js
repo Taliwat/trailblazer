@@ -21,14 +21,12 @@ export default function Events({ parkCode }) {
     <>
       {
         eventData.length ?
-          <div className="shadow-lg w-full">
-            <div className="flex w-full">
+          <div className="p-2 grow-0 w-screen md:w-2/3">
+            <div>
               <p className="font-extrabold text-black-600 text-2xl">Park events:</p>
             </div>
-            <ul className="list-disc shadow-lg">
-              {eventData.map((event) => (
-                <Eventdetails event={event} key={event.id} />
-              ))}
+            <ul>
+              {eventData.map((event) => (<Eventdetails event={event} key={event.id} />))}
             </ul>
           </div>
           : null

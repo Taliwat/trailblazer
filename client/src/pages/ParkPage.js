@@ -56,8 +56,10 @@ export default function ParkPage() {
                         <Alerts parkCode={parkCode} />
                         <Weather park={park} />
                         <Activities activities={park.activities} />
-                        <Campgrounds parkCode={parkCode} />
-                        <Events parkCode={parkCode} />
+                        <div className="flex flex-row flex-wrap">
+                            <Campgrounds parkCode={parkCode} />
+                            <Events parkCode={parkCode} />
+                        </div>
                         {loading ? <h1>Loading...</h1> : <Reviews park={park} reviewData={reviewData} />}
                     </div>
                 </main>}

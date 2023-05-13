@@ -30,7 +30,7 @@ export default function Campclick({ camp }){
 
   return(
     <li>
-      <button key={camp.id} onClick={handleButtonClick}><h1 className="text-xl">{camp.name}</h1></button>
+      <button key={camp.id} onClick={handleButtonClick}>{camp.name}</button>
     </li>
   )
 }

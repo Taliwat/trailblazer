@@ -28,9 +28,9 @@ export default function Weather ({ park }) {
   return(
     <div>
       WEATHER
-      {weatherData.filter(weather.dt_tx => weather.include().map((weather) => (
+      {/* {weatherData.filter(weather.dt_tx => weather.include().map((weather) => (
         <Weathercard weather={weather} key={weather.dt}/>
-      ))}
+      ))} */}
     </div>
   )
 }

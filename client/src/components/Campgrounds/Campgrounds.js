@@ -20,14 +20,12 @@ export default function Campgrounds({ parkCode }) {
     <>
       {
         campData.length ?
-          <div className="shadow-lg w-full">
-            <div className="flex w-full">
+          <div className="p-2 grow-0 w-screen md:w-1/3">
+            <div>
               <p className="font-extrabold text-black-600 text-2xl">Camp Grounds:</p>
             </div>
             <ul>
-              {campData.map((camp) => (
-                <Campclick camp={camp} key={camp.id} />
-              ))}
+              {campData.map((camp) => (<Campclick camp={camp} key={camp.id} />))}
             </ul>
           </div>
           : null
