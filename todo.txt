@@ -15,10 +15,11 @@
   DONE - Park Alerts (/alerts)
   DONE - Activities
   DONE - Basic Campground Info Alert
-  -Events
+  Done - Events
+  -5day weather outlook - (openweather?)
+  
   -thingstodo
   -tours
-  -5day weather outlook - (openweather?)
   -parkinglots (mapBox?)
   -passportstamplocations (mapbox?)
 

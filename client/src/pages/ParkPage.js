@@ -7,6 +7,9 @@ import Reviews from "../components/Reviews/Reviews";
 import Activities from "../components/Activities";
 import Campgrounds from "../components/Campgrounds/Campgrounds";
 import Events from "../components/Events/Events"
+import Weather from "../components/Weather/Weather"
+import { useQuery } from "@apollo/client";
+import { QUERY_REVIEWS } from "../utils/queries";
 import WishVisit from "../components/VisitedWish/WishVisit";
 
 
@@ -58,8 +61,11 @@ export default function ParkPage() {
                         </div>
                         <Alerts parkCode={parkCode} />
                         <Activities activities={park.activities} />
-                        <Campgrounds parkCode={parkCode} />
-                        <Events parkCode={parkCode} />
+                        <Weather park={park} />
+                        <div id="Container_C_E"className="flex flex-row flex-wrap shadow-lg">
+                            <Campgrounds parkCode={parkCode} />
+                            <Events parkCode={parkCode} />
+                        </div>
                         {error && <h1>Error loading reviews</h1>}
                         {loading ? <h1>Loading...</h1> : <Reviews park={park} reviewData={reviewData} />}
                     </div>
