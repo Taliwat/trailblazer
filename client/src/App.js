@@ -17,7 +17,8 @@ import Signup from "./pages/Signup.js";
 import ReviewPage from "./pages/ReviewPage.js";
 import ContactUs from "./pages/ContactUs.js";
 import AboutUs from "./pages/AboutUs.js";
-import Footer from "./components/Footer.js"
+import Footer from "./components/Footer.js";
+import UserProfile from "./pages/UserProfile.js";
 
 const httpLink = createHttpLink({
   //heroku link will go here
@@ -40,14 +41,11 @@ const client = new ApolloClient({
 });
 
 function App() {
-  //eventually shift to useContext component?
-  const [state, setState] = useState('MI')
+  const [state, setState] = useState("MI")
 
   function newState(state) {
     setState(state)
   }
-
-  console.log(state)
 
   return (
     <ApolloProvider client={client}>
@@ -59,6 +57,7 @@ function App() {
             <Route path="/" element={<HomePage state={state} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+             <Route path="/profile" element={<UserProfile />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/review/:parkCode" element={<ReviewPage />} />

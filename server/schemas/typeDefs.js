@@ -49,6 +49,7 @@ const typeDefs = gql`
     reviews(parkCode: String!): [Review]
     review(reviewId: ID!): Review
     me: User
+    userReviews: [Review]
   }
 
   #   mutations

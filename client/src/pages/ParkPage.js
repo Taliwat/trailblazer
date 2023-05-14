@@ -60,7 +60,7 @@ export default function ParkPage() {
                         <Alerts parkCode={parkCode} />
                         <Activities activities={park.activities} />
                         <Weather park={park} />
-                        <div id="Container_C_E"className="flex flex-row flex-wrap shadow-lg">
+                        <div id="Container_C_E" className="flex flex-row flex-wrap shadow-lg">
                             <Campgrounds parkCode={parkCode} />
                             <Events parkCode={parkCode} />
                         </div>

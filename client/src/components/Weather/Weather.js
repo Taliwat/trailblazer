@@ -10,9 +10,8 @@ function Icon({ id, open }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={`${
-        id === open ? "rotate-180" : ""
-      } h-5 w-5 transition-transform`}
+      className={`${id === open ? "rotate-180" : ""
+        } h-5 w-5 transition-transform`}
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -23,8 +22,7 @@ function Icon({ id, open }) {
   );
 }
 
-
-export default function Weather ({ park }) {
+export default function Weather({ park }) {
   const [weatherData, setWeatherData] = useState([]);
   const lat = parseFloat(park.latitude);
   const lon = parseFloat(park.longitude);
@@ -36,7 +34,7 @@ export default function Weather ({ park }) {
     setOpen(open === value ? 0 : value);
   };
 
-  useEffect(() =>{
+  useEffect(() => {
     async function fetchData() {
       const response = await fetch(openWeatherURI);
       const data = await response.json();
@@ -45,11 +43,7 @@ export default function Weather ({ park }) {
     fetchData()
   }, [openWeatherURI])
 
-  useEffect(()=>{
-    return
-  }, [weatherData])
-
-  return(
+  return (
     <div id="Weather" className="p-2 shadow-lg grow-0 w-full">
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(1)}>
@@ -57,7 +51,7 @@ export default function Weather ({ park }) {
         </AccordionHeader>
         <AccordionBody>
           <div className="flex flex-row flex-wrap">
-            {weatherData.map((weather) => (<Weathercard weather={weather} key={weather.dt}/>))}
+            {weatherData && weatherData.map((weather) => (<Weathercard weather={weather} key={weather.dt} />))}
           </div>
         </AccordionBody>
       </Accordion>
