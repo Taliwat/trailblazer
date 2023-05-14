@@ -44,7 +44,7 @@ export default function ParkPage() {
             {parkData &&
                 <main className="w-full h-full">
                     <div className="flex w-full bg-white" style={{ height: `65vh` }}>
-                        <img src={park.images[1].url} className="h-full w-full object-cover object-bottom" alt={park.fullName} />
+                        <img src={park?.images[1]?.url || park.images[0].url} className="h-full w-full object-cover object-bottom" alt={park.fullName} />
                     </div>
                     <div className="m-2 flex flex-col gap-5">
                         <div className="flex w-full gap-5 justify-between">
