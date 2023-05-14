@@ -49,7 +49,7 @@ export default function MapBox({ lonx, latx, npsData }) {
             npsData.data.forEach((feature) => {
                 const popup = new mapboxgl.Popup({ offset: 15 })
                     .setHTML(`<p><b>${feature.fullName}</b></p>
-                            <p>${feature.addresses[0].city} ${feature.addresses[0].line1} ${feature.addresses[0].postalCode}</p>`);
+                            <p>${feature.addresses[0]?.city || ''} ${feature.addresses[0]?.line1 || ''} ${feature.addresses[0]?.postalCode || ''}</p>`);
 
                 const marker = new mapboxgl.Marker()
                     .setLngLat({ lng: feature.longitude, lat: feature.latitude })
