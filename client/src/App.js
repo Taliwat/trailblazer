@@ -41,8 +41,7 @@ const client = new ApolloClient({
 });
 
 function App() {
-  //eventually shift to useContext component?
-  const [state, setState] = useState('MI')
+  const [state, setState] = useState("MI")
 
   function newState(state) {
     setState(state)

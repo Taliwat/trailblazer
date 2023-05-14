@@ -10,7 +10,6 @@ export function HomePage({ state }) {
     const [npsData, setNpsData] = useState([])
     const ROOTNPSURI = 'https://developer.nps.gov/api/v1/parks?stateCode='
     const NPSURI = `${ROOTNPSURI}${state}&limit=20&api_key=${process.env.REACT_APP_NPS_API}`
-
     let LOCATIONLON = coords[state].lon
     let LOCATIONLAT = coords[state].lat
 

@@ -2,15 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import './mapbox.css'
 
-// const ROOTMAPBOXURI = 'https://api.mapbox.com/search/searchbox/v1/category/'
-
-// const CATEGORY = 'outdoors'
-
-// const MAPBOXURI = `${ROOTMAPBOXURI}${CATEGORY}?access_token=${ACCESSTOKEN}&limit=10&origin=${LOCATIONLON},${LOCATIONLAT}&proximity=${LOCATIONLON},${LOCATIONLAT}`
-
-
 mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX_API}`
-//I think we'll eventually want to set the origin state(MI) as a prop -- state agnostic searches will be very tricky
 export default function MapBox({ lonx, latx, npsData }) {
 
     const mapContainer = useRef(null);
