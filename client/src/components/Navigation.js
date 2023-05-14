@@ -41,11 +41,12 @@ export default function NavBar({ state, newState }) {
             <div className=" md:w-48 w-40 h-full flex flex-col justify-center items-center">
 
                 {Auth.loggedIn() ?
-                    (
                         <>
-                            <h1 className="text-2xl font-extrabold hover:text-gray-800">Bob</h1>
+                          {user &&
+                            <Link to={"/profile"} className="text-2xl font-extrabold hover:text-gray-800">Hey, {user.firstName}</Link>
+                          }
                             <a href="/" className="text-2xl font-extrabold hover:text-gray-800" onClick={() => Auth.logout()}>Log Out</a>
-                        </>) :
+                        </> :
                     <Link to={"/login"} className="text-2xl font-extrabold hover:text-gray-800">Login</Link>}
             </div>
         </nav>
