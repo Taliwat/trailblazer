@@ -26,6 +26,12 @@ const resolvers = {
       }
       throw new AuthenticationError('You have to be logged in!');
     },
+    userReviews: async (parent, args, context) => {
+      if (context.user) {
+        return await Review.find({ author: context.user._id });
+      }
+      throw new AuthenticationError('You have to be logged in!');
+    }
   },
 
   Mutation: {
