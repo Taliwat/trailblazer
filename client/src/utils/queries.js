@@ -66,3 +66,16 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_USER_REVIEWS = gql`
+  {
+    userReviews {
+      author
+      authorName
+      body
+      score
+      createdAt
+      updatedAt
+    }
+  }
+`;
