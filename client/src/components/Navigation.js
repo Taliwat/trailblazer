@@ -25,9 +25,7 @@ export default function NavBar({ state, newState }) {
         }
     }, [data, user?.state, newState, hasFetchedState])
 
-    if (!state) return <h1>Loading...</h1>
-    console.log(data)
-    console.log(state)
+    if (!hasFetchedState && Auth.loggedIn()) return <h1>Loading...</h1>
 
     return (
         <nav className="w-screen flex justify-between shadow-lg max-w-full" style={{ height: '10vh', backgroundColor: '#a2a2a275' }}>

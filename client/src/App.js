@@ -40,7 +40,7 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [state, setState] = useState(null)
+  const [state, setState] = useState("MI")
 
   function newState(state) {
     setState(state)
@@ -53,7 +53,7 @@ function App() {
         <Splash />
         <main style={{ minHeight: '90vh' }}>
           <Routes>
-            <Route path="/" element={state ? <HomePage state={state} /> : <h1>Loading...</h1>} />
+            <Route path="/" element={<HomePage state={state} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/contact" element={<ContactUs />} />
