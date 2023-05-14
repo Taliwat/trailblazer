@@ -1,10 +1,33 @@
 import { Link, useLocation } from "react-router-dom"
+import { useQuery } from "@apollo/client"
+import { QUERY_ME } from "../utils/queries"
 import StateFilter from "./StateFilter"
 import logo from "../assets/imgs/logo.png"
 import Auth from '../utils/auth'
+import { useEffect, useState } from "react"
 
 export default function NavBar({ state, newState }) {
     const location = useLocation()
+
+    const { data } = useQuery(QUERY_ME);
+    let user;
+    if (data) {
+        user = data.me;
+    }
+
+    //only use fetched data once
+    const [hasFetchedState, setHasFetchedState] = useState(false)
+
+    useEffect(() => {
+        if (data && !hasFetchedState) {
+            newState(user?.state)
+            setHasFetchedState(true)
+        }
+    }, [data, user?.state, newState, hasFetchedState])
+
+    if (!state) return <h1>Loading...</h1>
+    console.log(data)
+    console.log(state)
 
     return (
         <nav className="w-screen flex justify-between shadow-lg max-w-full" style={{ height: '10vh', backgroundColor: '#a2a2a275' }}>
