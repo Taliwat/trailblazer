@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HomePage } from "./pages/HomePage.js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
+      <HashRouter>
         <NavBar state={state} newState={newState} />
         <Splash />
         <main style={{ minHeight: '90vh' }}>
@@ -57,7 +57,7 @@ function App() {
             <Route path="/" element={<HomePage state={state} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/profile" element={<UserProfile />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/review/:parkCode" element={<ReviewPage />} />
@@ -65,7 +65,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </ApolloProvider>
   );
 }

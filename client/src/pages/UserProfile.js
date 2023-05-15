@@ -19,7 +19,7 @@ export default function UserProfile() {
   }
 
   return (
-    <section style={{ height: '90vh', backgroundImage: `url(${leaves})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+    <section style={{ minHeight: '90vh', backgroundImage: `url(${leaves})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
       <div className="container mx-auto p-6">
         <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col bg-opacity-80">
           <div className="mb-4">
@@ -42,8 +42,8 @@ export default function UserProfile() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
                 </svg>
               </span> {user.wishList.join(", ")}</h2>
-            <h2 className="text-gray-800 font-bold text-lg mb-2">My reviews:</h2>
-            <ul className="text-gray-800 font-bold text-lg mb-2">
+            <h2 className="text-gray-800 font-bold text-lg">My reviews:</h2>
+            <ul className="text-gray-800 font-bold text-lg mb-2 h-96 overflow-y-auto">
               {reviews && reviews.map(reviews => (
                 <li className="m-2">
                   <Review review={reviews} key={reviews._id} />
