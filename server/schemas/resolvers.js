@@ -28,7 +28,7 @@ const resolvers = {
     },
     userReviews: async (parent, args, context) => {
       if (context.user) {
-        return await Review.find({ author: context.user._id });
+        return await Review.find({ author: context.user._id }).sort({ createdAt: -1 });
       }
       throw new AuthenticationError('You have to be logged in!');
     }

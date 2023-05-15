@@ -5,13 +5,13 @@ import leaves from "../assets/imgs/leaves.webp"
 
 export default function UserProfile() {
 
-  const { data: userData } = useQuery(QUERY_ME);
+  const { data: userData } = useQuery(QUERY_ME, { fetchPolicy: 'network-only' });
   let user;
   if (userData) {
     user = userData.me;
   }
 
-  const { data } = useQuery(QUERY_USER_REVIEWS);
+  const { data } = useQuery(QUERY_USER_REVIEWS, { fetchPolicy: 'network-only' });
   let reviews;
   if (data) {
     reviews = data.userReviews;
