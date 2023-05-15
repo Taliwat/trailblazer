@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 // import ADD_USER mutation (gql string)
 import { ADD_USER } from '../utils/mutations';
 import { states } from '../assets/states';
-import signup from '../assets/imgs/signup.webp'
+import signup from '../assets/imgs/signup2.webp'
 
 function Signup() {
   // track the state of the form fields (email and password)
@@ -48,7 +48,7 @@ function Signup() {
   // fields should probably have "required" on them
   return (
     <section className='w-full flex items-center justify-center font-bold' style={{ height: '90vh', backgroundImage: `url(${signup})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="flex flex-col justify-center items-center md:w-1/2 w-full rounded-md" style={{ backgroundColor: '#aaaaaa87' }}>
+      <div className="flex flex-col justify-center items-center md:w-1/2 w-full rounded-md bg-gray-200 bg-opacity-80">
         <Link to="/login" className='font-extrabold p-2 hover:text-gray-800'>← Go to Login</Link>
         <div className='flex flex-col justify-center items-center gap-2'>
           <h2>Signup</h2>

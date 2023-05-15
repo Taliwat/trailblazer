@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 // import Auth object
 import Auth from '../utils/auth';
-import signup from '../assets/imgs/signup.webp'
+import signup from '../assets/imgs/signup2.webp'
 
 function Login() {
   // initializes our form state
@@ -44,7 +44,7 @@ function Login() {
   // fields should have required if they are required
   return (
     <section className='w-full flex items-center justify-center font-bold' style={{ height: '90vh', backgroundImage: `url(${signup})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="flex flex-col justify-center items-center md:w-1/2 w-full rounded-md" style={{ backgroundColor: '#aaaaaa87' }}>
+      <div className="flex flex-col justify-center items-center md:w-1/2 w-full rounded-md bg-gray-200 bg-opacity-80">
         <Link to="/signup" className='font-extrabold p-2  hover:text-gray-800'>← Go to Signup</Link>
         <h2>Login</h2>
         <form onSubmit={handleFormSubmit} className='flex flex-col justify-center items-center gap-5'>
