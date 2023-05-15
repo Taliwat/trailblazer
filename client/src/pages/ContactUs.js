@@ -2,7 +2,7 @@
 import ryanpic from "../assets/imgs/RDM wedding edit.jpg";
 import johnpic from "../assets/imgs/me3.webp";
 import jacobpic from "../assets/imgs/jacob.webp";
-import clown from "../assets/imgs/clown.jpg"
+import damianpic from "../assets/imgs/damian.png"
 
 //create a Contact page that gives information about the team and how to contact us!  be a bit creative here, and be able to have users have a button that can send emails given the provided email in the team member's profile.
 
@@ -37,7 +37,7 @@ export default function ContactUs() {
               </div>
             </div>
             <div className="rounded md:overflow-y-scroll shadow-lg flex flex-col p-2 gap-3 h-96">
-              <img className="w-full object-contain h-3/6" src={clown} alt="Ryan Mennemeier self" />
+              <img className="w-full object-contain h-3/6" src={damianpic} alt="Ryan Mennemeier self" />
               <h1 className="font-bold text-xl">Damian Galus</h1>
               <p className="text-gray-700 text-base h-full overflow-auto">
                 Hey, name is Damian, I am a Full Stack Developer based out of Michigan. I enjoy keeping up with the latest industry trends and technologies,
