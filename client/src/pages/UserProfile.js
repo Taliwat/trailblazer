@@ -15,8 +15,9 @@ export default function UserProfile() {
   let reviews;
   if (data) {
     reviews = data.userReviews;
-
   }
+
+  if (!user) return <h1>No User Found!</h1>
 
   return (
     <section style={{ minHeight: '90vh', backgroundImage: `url(${leaves})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>

@@ -20,8 +20,8 @@ export default function ContactUs() {
                 I am John Scicluna, a meticulous full stack developer with an unwavering commitment to delivering user-centric solutions. I welcome any opportunities to engage in interesting coding discussions or potential project collaborations.
               </p>
               <div className="h-1/8 flex justify-center gap-5">
-                <a href="https://github.com/scicluna" className=" bg-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-400">John's Github</a>
-                <a href="mailto:sciclunajl@gmail.com" className=" bg-gray-200 rounded-full  text-sm font-semibold text-gray-700 hover:text-gray-400">Contact John!</a>
+                <a href="https://github.com/scicluna" target="_blank" rel="noreferrer" className=" bg-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-400">John's Github</a>
+                <a href="mailto:sciclunajl@gmail.com" target="_blank" rel="noreferrer" className=" bg-gray-200 rounded-full  text-sm font-semibold text-gray-700 hover:text-gray-400">Contact John!</a>
               </div>
             </div>
             <div className="rounded md:overflow-y-scroll shadow-lg flex flex-col p-2 gap-3 h-96">
@@ -32,8 +32,8 @@ export default function ContactUs() {
                 Throughout my youth and professional path I have used computers to increase my efficacy and to have fun!
               </p>
               <div className="h-1/8 flex justify-center gap-5">
-                <a href="https://github.com/Jacob-Jeffries" className=" inline-block bg-gray-200 rounded-full text-sm font-semibold text-gray-700  hover:text-gray-400">Jacob's Github</a>
-                <a href="mailto:jeffries.info@gmail.com" className=" inline-block bg-gray-200 rounded-full  text-sm font-semibold text-gray-700  hover:text-gray-400">Contact Jacob!</a>
+                <a href="https://github.com/Jacob-Jeffries" target="_blank" rel="noreferrer" className=" inline-block bg-gray-200 rounded-full text-sm font-semibold text-gray-700  hover:text-gray-400">Jacob's Github</a>
+                <a href="mailto:jeffries.info@gmail.com" target="_blank" rel="noreferrer" className=" inline-block bg-gray-200 rounded-full  text-sm font-semibold text-gray-700  hover:text-gray-400">Contact Jacob!</a>
               </div>
             </div>
             <div className="rounded md:overflow-y-scroll shadow-lg flex flex-col p-2 gap-3 h-96">
@@ -44,8 +44,8 @@ export default function ContactUs() {
                 and I am always looking for ways to improve my skills and knowledge. When I'm not coding, you can find me in the great outdoors or spending time with friends and family.
               </p>
               <div className="h-1/8 flex justify-center gap-5">
-                <a href="https://github.com/DFgalus" className=" inline-block bg-gray-200 rounded-full text-sm font-semibold text-gray-700  hover:text-gray-400">Damian's Github</a>
-                <a href="mailto:damiangdev@gmail.com" className=" inline-block bg-gray-200 rounded-full  text-sm font-semibold text-gray-700 hover:text-gray-400">Contact Damian!</a>
+                <a href="https://github.com/DFgalus" target="_blank" rel="noreferrer" className=" inline-block bg-gray-200 rounded-full text-sm font-semibold text-gray-700  hover:text-gray-400">Damian's Github</a>
+                <a href="mailto:damiangdev@gmail.com" target="_blank" rel="noreferrer" className=" inline-block bg-gray-200 rounded-full  text-sm font-semibold text-gray-700 hover:text-gray-400">Contact Damian!</a>
               </div>
             </div>
             <div className="rounded md:overflow-y-scroll shadow-lg flex flex-col p-2 gap-3 h-96" >
@@ -55,8 +55,8 @@ export default function ContactUs() {
                 Hi! I'm Ryan, a full stack developer with a passion for learning and creating things. I'm currently looking for a position in the software industry. Feel free to reach out to me if you have any questions!
               </p>
               <div className="h-1/8 flex justify-center gap-5">
-                <a href="https://github.com/Taliwat" className=" inline-block bg-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-400">Ryan's Github</a>
-                <a href="mailto:kalpha1865@gmail.com" className=" inline-block bg-gray-200 rounded-full  text-sm font-semibold text-gray-700 hover:text-gray-400">Contact Ryan!</a>
+                <a href="https://github.com/Taliwat" target="_blank" rel="noreferrer" className=" inline-block bg-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:text-gray-400">Ryan's Github</a>
+                <a href="mailto:kalpha1865@gmail.com" target="_blank" rel="noreferrer" className=" inline-block bg-gray-200 rounded-full  text-sm font-semibold text-gray-700 hover:text-gray-400">Contact Ryan!</a>
               </div>
             </div>
           </div>
