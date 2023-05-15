@@ -24,7 +24,7 @@ export function HomePage({ state }) {
 
     return (
         <>
-            {<MapBox lonx={LOCATIONLON} latx={LOCATIONLAT} npsData={npsData} />}
+            <MapBox lonx={LOCATIONLON} latx={LOCATIONLAT} npsData={npsData} />
             <div className="flex flex-col gap-3">
                 {npsData?.data ? npsData.data.map(park => {
                     return (
@@ -36,7 +36,7 @@ export function HomePage({ state }) {
                                 {Auth.loggedIn() && <Link to={`/review/${park.parkCode}?imgurl=${park.images[2]?.url || park.images[0]?.url}&parkname=${park.fullName}`} className="text-gray-900 italic hover:text-gray-700">Leave a review</Link>}
                             </div>
                             <div className="flex md:w-3/5 md:h-auto h-60 p-2">
-                                <img src={park.images[0]?.url} className="h-full w-full object-cover" alt={'park'} />
+                                <img src={park.images[0]?.url} loading="lazy" className="h-full w-full object-cover" alt={'park'} />
                             </div>
                         </div>
                     )

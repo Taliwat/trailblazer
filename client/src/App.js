@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { HomePage } from "./pages/HomePage.js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -19,6 +19,7 @@ import ContactUs from "./pages/ContactUs.js";
 import AboutUs from "./pages/AboutUs.js";
 import Footer from "./components/Footer.js";
 import UserProfile from "./pages/UserProfile.js";
+import ScrollToTop from "./components/ScrollToTop.js";
 
 const httpLink = createHttpLink({
   //heroku link will go here
@@ -49,23 +50,25 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
+      <HashRouter>
         <NavBar state={state} newState={newState} />
         <Splash />
         <main style={{ minHeight: '90vh' }}>
-          <Routes>
-            <Route path="/" element={<HomePage state={state} />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-             <Route path="/profile" element={<UserProfile />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/review/:parkCode" element={<ReviewPage />} />
-            <Route path="/park/:parkCode" element={<ParkPage />} />
-          </Routes>
+          <ScrollToTop>
+            <Routes>
+              <Route path="/" element={<HomePage state={state} />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/profile" element={<UserProfile />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/review/:parkCode" element={<ReviewPage />} />
+              <Route path="/park/:parkCode" element={<ParkPage />} />
+            </Routes>
+          </ScrollToTop>
         </main>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </ApolloProvider>
   );
 }

@@ -73,6 +73,7 @@ export const QUERY_USER_REVIEWS = gql`
     userReviews {
       author
       authorName
+      parkCode
       body
       score
       createdAt

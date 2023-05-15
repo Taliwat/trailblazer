@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server --ignore client",
+    "start": "cd server && node server.js",
     "install": "cd server && npm i && cd ../client && npm i",
     "scrape": "cd server/models/seed/ && node scrap.js",
     "seed": "cd server/models/seed/ && node seed.js",
